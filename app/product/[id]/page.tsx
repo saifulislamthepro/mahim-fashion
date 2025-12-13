@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { connectDB } from "@/lib/db";
 import ProductModel from "@/models/Product";
 import Products from "@/components/Products";

@@ -1,6 +1,5 @@
+export const dynamic = "force-dynamic";
 
-
-import dynamic from "next/dynamic";
 import "./style.css";
 import { connectDB } from "@/lib/db";
 import Product from "@/models/Product";
@@ -13,12 +12,9 @@ import Products from "@/components/Products";
 
 import { ProductType } from "@/types/product";
 import { CategoryType } from "@/types/category";
+import CatProductSlider from "@/components/CatProducts";
 
 
-const CatProductSlider = dynamic(()=> import("@/components/CatProducts"), {
-  loading: () => <p>Loading...</p>,
-  ssr: true
-})
 export default async function Home() {
   await connectDB();
 
