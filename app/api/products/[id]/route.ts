@@ -75,14 +75,14 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
           return;
         }  
   // ✅ GLOBAL uploads directory (outside Next.js)
-      const uploadDir = "ravaa/uploads";
+      const uploadDir = "/var/www/ravaa/uploads";
       if (!fs.existsSync(uploadDir)) {
         fs.mkdirSync(uploadDir, { recursive: true });
       }
-        const filePath = path.join(process.cwd(), uploadDir, filename);
+          const filepath = path.join(uploadDir, filename);
 
-        if (fs.existsSync(filePath)) {
-          fs.unlinkSync(filePath);
+        if (fs.existsSync(filepath)) {
+          fs.unlinkSync(filepath);
           console.log("🗑 Deleted file:", filename);
         } else {
           console.log("⚠ File not found:", filename);
