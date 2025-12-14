@@ -88,9 +88,9 @@ export default function Navbar() {
         </div>
 
       <div className="flex nav-header">
-      <section className={scrolled ? "navbar-container scrolled" : "navbar-container"} ref={menuRef}>
+      <nav className={scrolled ? "navbar-container scrolled" : "navbar-container"} ref={menuRef}>
 
-        <nav className={`grid ${mobileOpen ? "open" : ""}`}>
+        <section className={`grid ${mobileOpen ? "open" : ""}`}>
 
           {/* Dropdown */}
           <div className="dropdown">
@@ -125,9 +125,9 @@ export default function Navbar() {
               <i className="fa-solid fa-bars"></i>
             </div>
           </div>
-        </nav>
+        </section>
 
-      </section>
+      </nav>
       </div>
     </header>
   );

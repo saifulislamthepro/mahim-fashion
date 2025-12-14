@@ -59,6 +59,9 @@ header .navbar-container{
   color: #fff;
   padding: 0;
   margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 header .navbar-container.scrolled{
   position: fixed;
@@ -66,7 +69,8 @@ header .navbar-container.scrolled{
   z-index: 100;
 }
 .nav-header section{
-  max-width: 100%;
+  width: 100%;
+  gap: 0;
 }
 header .navbar-container nav{
   gap: 0;
@@ -79,7 +83,7 @@ header .navbar-container nav{
 .dropdown h3{
   text-align: right;
   padding: 16px 0;
-  padding-right: 7rem;
+  padding-right: 2rem;
 }
 .dropdown-toggle{
   position: relative;
@@ -111,7 +115,6 @@ header .navbar-container nav{
 }
 header nav .menu-container{
   grid-column: span 8;
-  padding-left: 6rem;
 }
 header nav .menu-container .links{
   width: 100%;

@@ -90,16 +90,14 @@ useEffect(() => {
       <div className="mobile-grid grid">
         {products.map((item) => (
           <div className="mobile-product" key={item._id} >
-            <a href={`/product/${item._id}`}>
-            <div className="img">
-            <img src={item.images[0]} alt={item.title} loading="lazy"/>
-            </div>
-            <h4>{item.title}</h4>
+              <a href={`/product/${item._id}`}>
+              <img src={item.images[0]} alt={item.title} loading="lazy"/>
+              <h3>{item.title}</h3>
+              <div className="flex">
+                <p>{item.price} টাকা</p>
+                <p>View Details</p>
+              </div>
             </a>
-            <div className="flex">
-              <p>{item.price} টাকা</p>
-              <p>View Details</p>
-            </div>
           </div>
         ))}
       </div>
@@ -113,15 +111,13 @@ if (products.length < 4) {
           {products.map((item) => (
             <div className="web-product" key={item._id} >
               <a href={`/product/${item._id}`}>
-                <div className="img">
                 <img src={item.images[0]} alt={item.title} loading="lazy"/>
+                <h3>{item.title}</h3>
+                <div className="flex">
+                  <p>{item.price} টাকা</p>
+                  <p>View details</p>
                 </div>
-                <h4>{item.title}</h4>
               </a>
-              <div className="flex">
-                <p>{item.price} টাকা</p>
-                <p>View details</p>
-              </div>
             </div>
           ))}
         </div>
@@ -141,17 +137,13 @@ if (products.length < 4) {
                     {products.map((item) => (
                         <div className="product-card">
                           <a href={`/product/${item._id}`} key={item._id}>
-                            <div className="img-box">
-                              <div className="img">
-                                <img src={item.images[0]} alt={item.title} loading="lazy"/>
-                              </div>
-                            </div>
+                            <img src={item.images[0]} alt={item.title} loading="lazy"/>
                             <h3>{item.title}</h3>
+                            <div className="flex">
+                              <p>{item.price} টাকা</p>
+                              <p>View Details</p>
+                            </div>
                           </a>
-                          <div className="flex">
-                            <p>{item.price} টাকা</p>
-                            <p>View Details</p>
-                          </div>
                         </div>
                     ))}
                     </div>
