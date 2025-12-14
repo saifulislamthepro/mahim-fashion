@@ -4,6 +4,8 @@ import { connectDB } from "@/lib/db";
 import fs from "fs";
 import path from "path";
 
+const uploadDirectory = process.env.UPLOADS_DIRECTORY;
+
 export async function GET() {
   await connectDB();
   const products = await Product.find({});
@@ -15,7 +17,7 @@ export async function POST(req: Request) {
   const data = await req.formData();
 
     // ✅ GLOBAL uploads directory (outside Next.js)
-    const uploadDir = "/var/www/ravaa/uploads";
+    const uploadDir = `{uploadDirectory}`;
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }

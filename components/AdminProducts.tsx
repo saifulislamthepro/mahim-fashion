@@ -88,9 +88,7 @@ if (!mounted) return null;
             <p>Category: {p.category}</p>
 
             <div className="product-images">
-                <Image 
-                  className="product-thumbnail" src={p.images[0]} alt={p.title}>
-                </Image>                
+                <img className="product-thumbnail" src={p.images[0]} alt={p.title}/>               
             </div>
 
             <div className="stock-info">

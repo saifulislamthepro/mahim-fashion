@@ -46,9 +46,9 @@
 
 
 /* Text */
-.product-card h3 {
+.product-card h3, .mobile-product h3, .web-product h3 {
   font-size: 18px;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .product-card p {
@@ -92,7 +92,6 @@
 .web-grid .web-product{
   grid-column: span 3;
   height: fit-content;
-  width: 250px;
   background-color: #fff;
   padding: 1rem;
 }

@@ -3,7 +3,7 @@ import fs from "fs";
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 
-
+const uploadDirectory = process.env.UPLOADS_DIRECTORY;
 
 export async function DELETE(req: NextRequest) {
 
@@ -15,7 +15,7 @@ export async function DELETE(req: NextRequest) {
     // 
     
     // ✅ GLOBAL uploads directory (outside Next.js)
-    const uploadDir = "/var/www/ravaa/uploads";
+    const uploadDir = `${uploadDirectory}`;
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }

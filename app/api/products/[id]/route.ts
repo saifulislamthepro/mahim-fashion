@@ -4,6 +4,8 @@ import { connectDB } from "@/lib/db";
 import path from "path";
 import fs from "fs";
 
+const uploadDirectory = process.env.UPLOADS_DIRECTORY;
+
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   await connectDB();
   const param = await params;
@@ -18,7 +20,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   const data = await req.formData();    
   
   // ✅ GLOBAL uploads directory (outside Next.js)
-      const uploadDir = "/var/www/ravaa/uploads";
+      const uploadDir = `${uploadDirectory}`;
       if (!fs.existsSync(uploadDir)) {
         fs.mkdirSync(uploadDir, { recursive: true });
       }
@@ -75,7 +77,7 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
           return;
         }  
   // ✅ GLOBAL uploads directory (outside Next.js)
-      const uploadDir = "/var/www/ravaa/uploads";
+      const uploadDir = `${uploadDirectory}`;
       if (!fs.existsSync(uploadDir)) {
         fs.mkdirSync(uploadDir, { recursive: true });
       }

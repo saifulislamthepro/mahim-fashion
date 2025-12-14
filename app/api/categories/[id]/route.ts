@@ -4,6 +4,7 @@ import Category from "@/models/Category";
 import fs from "fs";
 import path from "path";
 
+const uploadDirectory = process.env.UPLOADS_DIRECTORY;
 // ✅ DELETE a category
 export async function DELETE(_: Request, { params }: { params: Promise<{ id: string }> }) {
   await connectDB();
@@ -15,7 +16,7 @@ export async function DELETE(_: Request, { params }: { params: Promise<{ id: str
     // Remove image from public/uploads
     if (category.image) {
           // ✅ GLOBAL uploads directory (outside Next.js)
-          const uploadDir = "/var/www/ravaa/uploads";
+          const uploadDir = `${uploadDirectory}`;
           if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
           }
@@ -50,7 +51,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (image) {    
       
       // ✅ GLOBAL uploads directory (outside Next.js)
-        const uploadDir = "/var/www/ravaa/uploads";
+        const uploadDir = `${uploadDirectory}`;
         if (!fs.existsSync(uploadDir)) {
           fs.mkdirSync(uploadDir, { recursive: true });
         }

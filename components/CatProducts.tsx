@@ -55,7 +55,7 @@ useEffect(() => {
             <div className="img">
             <img src={item.images[0]} alt={item.title} loading="lazy"/>
             </div>
-            <h4>{item.title}</h4>
+            <h3>{item.title}</h3>
             </a>
             <div className="flex">
               <p>{item.price} টাকা</p>
@@ -78,7 +78,7 @@ useEffect(() => {
               <div className="img">
               <img src={item.images[0]} alt={item.title} loading="lazy" />
               </div>
-              <h4>{item.title}</h4>
+              <h3>{item.title}</h3>
               </a>
               <div className="flex">
                 <p>{item.price} টাকা</p>
