@@ -53,7 +53,7 @@ if (!mounted) return null;
             </div>
 
             <div className="payment">
-                <img src="./payment.jpg" alt="payment" />
+                <img src="/images/payment.jpg" alt="payment" />
             </div>
 
             <div className="footer-bottom">
