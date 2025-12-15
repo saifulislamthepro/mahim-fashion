@@ -62,7 +62,7 @@ export default function Navbar() {
       <div className="top-bar flex">
         <section className="flex">
           <div className="phone"><i className="fa-solid fa-phone"></i>+8801901929592, +8801901929593</div>
-          <div className="login"><a href="/login"><p>SignUp/Login</p></a></div>
+          <div className="login"><a href="/login"><p>Login</p></a></div>
         </section>
       </div>
       <div className="flex logo-nav">
