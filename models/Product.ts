@@ -13,6 +13,7 @@ export interface IProduct extends Document {
   description: string;
   stock: ISize[];
   images: string[];
+  thumbnail: string;
   featured: Boolean
 }
 
@@ -29,6 +30,7 @@ const ProductSchema = new Schema<IProduct>({
   description: { type: String },
   stock: [SizeSchema],
   images: [String],
+  thumbnail: { type: String },
   featured: {type: Boolean, default: false}
 });
 

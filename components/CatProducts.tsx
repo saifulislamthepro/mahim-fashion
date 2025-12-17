@@ -53,7 +53,7 @@ useEffect(() => {
           <div className="mobile-product" key={item._id}>
             <a href={`/product/${item._id}`}>
             <div className="img">
-            <Image src={item.images[0]} fill alt={item.title} loading="lazy"/>
+            <Image src={item.thumbnail} fill alt={item.title} loading="lazy" unoptimized/>
             </div>
             <h3>{item.title}</h3>
             </a>
@@ -76,7 +76,7 @@ useEffect(() => {
             <div className="web-product" key={item._id}>
               <a href={`/product/${item._id}`}>
               <div className="img">
-              <Image src={item.images[0]} fill alt={item.title} loading="lazy" />
+              <Image src={item.thumbnail} fill alt={item.title} loading="lazy" unoptimized />
               </div>
               <h3>{item.title}</h3>
               </a>
@@ -105,7 +105,7 @@ useEffect(() => {
                         <a href={`/product/${item._id}`}>
                           <div className="img-box">
                               <div className="img">
-                                  <Image src={item.images[0]} fill alt={item.title} loading="lazy"/>
+                                  <Image src={item.thumbnail} fill alt={item.title} loading="lazy" unoptimized/>
                               </div>
                           </div>
                           <h3>{item.title}</h3>

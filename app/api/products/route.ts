@@ -3,6 +3,7 @@ import Product from "@/models/Product";
 import { connectDB } from "@/lib/db";
 import fs from "fs";
 import path from "path";
+import sharp from "sharp";
 
 const uploadDirectory = process.env.UPLOADS_DIRECTORY;
 
@@ -25,14 +26,30 @@ export async function POST(req: Request) {
   // Handle image uploads
   const images = data.getAll("images") as File[];
   const savedImagePaths: string[] = [];
+  const thumbnails: string[] = [];
 
-  for (const image of images) {
-    const bytes = Buffer.from(await image.arrayBuffer());
-    const filename = `${Date.now()}-${image.name}`;
-    const filepath = path.join(uploadDir, filename);
-    await fs.promises.writeFile(filepath, bytes);
-    savedImagePaths.push(`/uploads/${filename}`);
-  }
+for (const image of images) {
+  const bytes = Buffer.from(await image.arrayBuffer());
+  const filename = `${Date.now()}-${image.name.replace(/\s/g, "-")}`;
+  const filepath = path.join(uploadDir, filename);
+
+  // Save original image
+  await fs.promises.writeFile(filepath, bytes);
+  savedImagePaths.push(`/uploads/${filename}`);
+
+  // Generate thumbnail for product lists (e.g., 300px width)
+  const thumbFilename = `thumb-${filename.replace(/\s/g, "-").split(".")[0]}.webp`;
+  const thumbPath = path.join(uploadDir, thumbFilename);
+
+  // ✅ Use 'bytes' instead of 'buffer'
+  await sharp(bytes)
+    .resize({ width: 300 })
+    .webp({ quality: 100 })
+    .toFile(thumbPath);
+
+  thumbnails.push(`/uploads/${thumbFilename}`);
+}
+
 
   // Parse stock
   let stock = [];
@@ -58,7 +75,8 @@ export async function POST(req: Request) {
     stock, // ← properly parsed array
     images: savedImagePaths,
     description: data.get("description"),
-    featured: false
+    featured: false,
+    thumbnail: thumbnails[0]
   });
 
   await product.save();

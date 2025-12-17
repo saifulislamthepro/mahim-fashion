@@ -92,7 +92,7 @@ useEffect(() => {
           <div className="mobile-product" key={item._id} >
               <a href={`/product/${item._id}`}>
               <div className="img">
-              <Image fill src={item.images[0]} alt={item.title} loading="lazy"/>
+              <Image fill src={item.thumbnail} alt={item.title} loading="lazy" unoptimized/>
               </div>
               <h3>{item.title}</h3>
               <div className="flex">
@@ -114,7 +114,7 @@ if (products.length <= 4) {
             <div className="web-product" key={item._id} >
               <a href={`/product/${item._id}`}>
                 <div className="img">
-                <Image fill src={item.images[0]} alt={item.title} loading="lazy"/>
+                <Image fill src={item.thumbnail} alt={item.title} loading="lazy" unoptimized/>
                 </div>
                 <h3>{item.title}</h3>
                 <div className="flex">
@@ -142,7 +142,7 @@ if (products.length <= 4) {
                         <div className="product-card"  key={item._id}>
                           <a href={`/product/${item._id}`}>
                             <div className="img">
-                            <Image fill src={item.images[0]} alt={item.title} loading="lazy"/>
+                            <Image fill src={item.thumbnail} alt={item.title} loading="lazy" unoptimized/>
                             </div>
                             <h3>{item.title}</h3>
                             <div className="flex">

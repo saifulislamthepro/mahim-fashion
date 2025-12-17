@@ -13,4 +13,5 @@ export type ProductType = {
   stock: Size[];
   description: string;
   images: string[];
+  thumbnail: string;
 };

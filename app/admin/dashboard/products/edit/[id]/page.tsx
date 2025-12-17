@@ -13,6 +13,7 @@ type Product = {
   description: string;
   stock: Size[];
   images: string[];
+  thumbnail: string;
 };
 
 type Category = {
@@ -37,6 +38,7 @@ export default function EditProductPage() {
     description: "",
     stock: [],
     images: [],
+    thumbnail: ""
   });
 
   const [imageFiles, setImageFiles] = useState<File[]>([]);
