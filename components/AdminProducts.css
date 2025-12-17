@@ -23,7 +23,7 @@
 .product-card i{
     position: absolute;
     top: 1rem;
-    right: 0;
+    right: 20;
     cursor: pointer;
     font-size: large;
 }

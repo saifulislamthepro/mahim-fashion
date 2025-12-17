@@ -8,28 +8,28 @@ type Props = {
 };
 
 export default function ImageGallery({ images }: Props) {
-  const [mounted, setMounted] = useState<boolean>(false);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [mounted, setMounted] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Desktop zoom
-  const [zoom, setZoom] = useState<boolean>(false);
+  /* Device detect */
+  const isTouchDevice =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches;
+
+  /* Desktop hover zoom */
+  const [zoom, setZoom] = useState(false);
+  const [position, setPosition] = useState({ x: 50, y: 50 });
+
+  /* Mobile zoom + pan */
   const MAX_ZOOM = 6;
-  const [position, setPosition] = useState<{ x: number; y: number }>({
-    x: 50,
-    y: 50,
-  });
-
-  // Mobile zoom + pan
-  const [scale, setScale] = useState<number>(1);
-  const [translate, setTranslate] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
+  const [scale, setScale] = useState(1);
+  const [translate, setTranslate] = useState({ x: 0, y: 0 });
 
   const lastDistance = useRef<number | null>(null);
   const lastTouch = useRef<{ x: number; y: number } | null>(null);
 
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -38,54 +38,56 @@ export default function ImageGallery({ images }: Props) {
   if (!mounted) return null;
 
   /* ---------------- Helpers ---------------- */
-
-  const resetZoom = (): void => {
+  const resetZoom = () => {
     setScale(1);
     setTranslate({ x: 0, y: 0 });
+    setZoom(false);
     lastDistance.current = null;
     lastTouch.current = null;
   };
 
-  const nextImage = (): void => {
-    setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  const nextImage = () => {
+    setActiveIndex((p) => (p === images.length - 1 ? 0 : p + 1));
     resetZoom();
   };
 
-  const prevImage = (): void => {
-    setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const prevImage = () => {
+    setActiveIndex((p) => (p === 0 ? images.length - 1 : p - 1));
     resetZoom();
   };
 
-  /* ---------------- Desktop Hover Zoom ---------------- */
+  /* ---------------- Desktop hover zoom ---------------- */
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isTouchDevice) return;
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
     const rect = imageRef.current?.getBoundingClientRect();
     if (!rect) return;
 
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-    setPosition({ x, y });
+    setPosition({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
   };
 
-  /* ---------------- Mobile Pinch Zoom ---------------- */
-
-  const getDistance = (touches: React.TouchList): number => {
+  /* ---------------- Mobile helpers ---------------- */
+  const getDistance = (touches: React.TouchList) => {
     const dx = touches[0].clientX - touches[1].clientX;
     const dy = touches[0].clientY - touches[1].clientY;
     return Math.sqrt(dx * dx + dy * dy);
   };
 
-  
+  /* ---------------- Touch move ---------------- */
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    /* Allow normal scroll when not zoomed */
+    if (scale === 1 && e.touches.length === 1) return;
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>): void => {
     e.preventDefault();
 
-    /* PINCH ZOOM */
+    /* Pinch zoom */
     if (e.touches.length === 2) {
       const distance = getDistance(e.touches);
 
-      if (lastDistance.current === null) {
+      if (!lastDistance.current) {
         lastDistance.current = distance;
         return;
       }
@@ -98,7 +100,7 @@ export default function ImageGallery({ images }: Props) {
       return;
     }
 
-    /* PAN (ONE FINGER) */
+    /* Pan */
     if (e.touches.length === 1 && scale > 1) {
       const touch = e.touches[0];
 
@@ -110,65 +112,85 @@ export default function ImageGallery({ images }: Props) {
       const dx = touch.clientX - lastTouch.current.x;
       const dy = touch.clientY - lastTouch.current.y;
 
-      setTranslate((prev) => ({
-        x: prev.x + dx,
-        y: prev.y + dy,
-      }));
+      setTranslate((prev) => {
+        const rect = wrapperRef.current?.getBoundingClientRect();
+        if (!rect) return prev;
+
+        const maxX = ((scale - 1) * rect.width) / 2;
+        const maxY = ((scale - 1) * rect.height) / 2;
+
+        return {
+          x: Math.max(Math.min(prev.x + dx, maxX), -maxX),
+          y: Math.max(Math.min(prev.y + dy, maxY), -maxY),
+        };
+      });
 
       lastTouch.current = { x: touch.clientX, y: touch.clientY };
     }
   };
 
-  const handleTouchEnd = (): void => {
+  const handleTouchEnd = () => {
     lastDistance.current = null;
     lastTouch.current = null;
-
     if (scale < 1.05) resetZoom();
+  };
+
+  /* ---------------- Tap to zoom (mobile) ---------------- */
+  const handleTap = () => {
+    if (!isTouchDevice) return;
+
+    if (scale === 1) {
+      setScale(2.5);
+    } else {
+      resetZoom();
+    }
   };
 
   return (
     <div className="gallery-container">
-      {/* Main Image */}
       <div
+        ref={wrapperRef}
         className="main-image-wrapper"
-        onMouseEnter={() => setZoom(true)}
-        onMouseLeave={() => setZoom(false)}
+        onMouseEnter={() => !isTouchDevice && setZoom(true)}
+        onMouseLeave={() => !isTouchDevice && setZoom(false)}
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <button onClick={prevImage} className="nav-btn left">❮</button>
+        <div className="image-container">
+          <button className="nav-btn left" onClick={prevImage}>❮</button>
 
-        <img
-          ref={imageRef}
-          src={images[activeIndex]}
-          alt="product"
-          loading="lazy"
-          className={`main-image ${zoom ? "zoom-active" : ""}`}
-          style={{
-            transform: `
-              translate(${translate.x}px, ${translate.y}px)
-              scale(${scale > 1 ? scale : zoom ? 3 : 1})
-            `,
-            transformOrigin: zoom
-              ? `${position.x}% ${position.y}%`
-              : "center",
-          }}
-        />
+          <img
+            ref={imageRef}
+            src={images[activeIndex]}
+            alt="product"
+            draggable={false}
+            onClick={handleTap}
+            className={`main-image ${scale > 1 ? "zoomed" : ""}`}
+            style={{
+              transform: isTouchDevice
+                ? `translate(${translate.x}px, ${translate.y}px) scale(${scale})`
+                : zoom
+                ? `scale(3)`
+                : "scale(1)",
+              transformOrigin: isTouchDevice
+                ? "center"
+                : `${position.x}% ${position.y}%`,
+            }}
+          />
 
-        <button onClick={nextImage} className="nav-btn right">❯</button>
+          <button className="nav-btn right" onClick={nextImage}>❯</button>
+        </div>
       </div>
 
-      {/* Thumbnails */}
       <div className="thumb-row">
-        {images.map((img, index) => (
+        {images.map((img, i) => (
           <img
-            key={index}
+            key={i}
             src={img}
-            alt="thumbnail"
-            className={`thumb ${index === activeIndex ? "active" : ""}`}
+            className={`thumb ${i === activeIndex ? "active" : ""}`}
             onClick={() => {
-              setActiveIndex(index);
+              setActiveIndex(i);
               resetZoom();
             }}
           />

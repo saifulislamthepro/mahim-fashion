@@ -17,7 +17,7 @@ export default async function ProductList() {
                         <a href={`/product/${p._id}`} key={p._id} className="product-card">
                             <div className="img-box">
                                 <div className="img">
-                                    <img src={p.images[0]} alt={p.title} loading="lazy"/>
+                                    <Image fill src={p.images[0]} alt={p.title} loading="lazy"/>
                                 </div>
                             </div>
 

@@ -24,7 +24,7 @@ a {
   text-decoration: none;
 }
 .page{
-  min-height: 100vh;
+  min-height: fit-content;
   background-color: #eee;
 }
 section{

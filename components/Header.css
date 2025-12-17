@@ -56,13 +56,12 @@ header .logo-container .icons-container .icon-a:first-child{
 /*Navigation*/
 
 header .navbar-container{
-  background-color: #333;
-  color: #fff;
   padding: 0;
   margin: 0;
   width: 100%;
   display: flex;
   justify-content: center;
+  background: #ffffff;
 }
 header .navbar-container.scrolled{
   position: fixed;
@@ -80,6 +79,7 @@ header .navbar-container nav{
   grid-column: span 4;
   background-color: orange;
   order: 10;
+  color: #fff;
 }
 .dropdown h3{
   text-align: right;
@@ -120,12 +120,13 @@ header nav .menu-container{
 header nav .menu-container .links{
   width: 100%;
   justify-content: space-between;
+  background-color: #fff;
 }
 header nav .links a{
   padding: 1rem;
 }
 header nav .links a:hover{
-  color: orange;
+  color: green;
 }
 header nav .links h3{
   position: relative;
@@ -184,13 +185,14 @@ header nav .links h3:hover::after{
   }
   .menu-container {
     position: relative;
+    background-color: #fff;
   }
   .navbar-container .links{
     position: absolute;
     display: none;
     flex-direction: column;
     right: 0;
-    background-color: #333;
+    background:none;
     top: 100%;
     width: 100%;
     align-items: flex-end;
@@ -201,11 +203,17 @@ header nav .links h3:hover::after{
   }
   .navbar-container .links a{
     display: block;
-    border-top: 1px solid #ffffff;
+    border-top: 1px solid #333;
     width: 100%;
     text-align: left;
     padding: 1rem 2rem;
   }
+  .navbar-container .links a:hover{
+    background-color: #eee;
+  }
+  header nav .links h3:hover::after{
+  width: 0;
+}
   .navbar-container .menu-bar{
     width: 100%;
     justify-content: flex-end;

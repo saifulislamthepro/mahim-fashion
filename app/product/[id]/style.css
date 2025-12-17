@@ -12,13 +12,11 @@
     padding: 1rem;
 }
 
-.single-product .image-container{
+.single-product .image-gallery{
     grid-column: span 6;
+    height: fit-content;
 }
 
-.single-product .image-container img{
-    width: 100%;
-}
 .single-product .details{
     grid-column: span 6;
 }

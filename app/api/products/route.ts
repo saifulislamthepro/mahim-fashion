@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   const data = await req.formData();
 
     // ✅ GLOBAL uploads directory (outside Next.js)
-    const uploadDir = `{uploadDirectory}`;
+    const uploadDir = `${uploadDirectory}`;
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }

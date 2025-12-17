@@ -91,7 +91,9 @@ useEffect(() => {
         {products.map((item) => (
           <div className="mobile-product" key={item._id} >
               <a href={`/product/${item._id}`}>
-              <img src={item.images[0]} alt={item.title} loading="lazy"/>
+              <div className="img">
+              <Image fill src={item.images[0]} alt={item.title} loading="lazy"/>
+              </div>
               <h3>{item.title}</h3>
               <div className="flex">
                 <p>{item.price} টাকা</p>
@@ -103,7 +105,7 @@ useEffect(() => {
       </div>
     );
   } else 
-if (products.length < 4) {
+if (products.length <= 4) {
   return (
     <div className="flex">
       <section>        
@@ -111,7 +113,9 @@ if (products.length < 4) {
           {products.map((item) => (
             <div className="web-product" key={item._id} >
               <a href={`/product/${item._id}`}>
-                <img src={item.images[0]} alt={item.title} loading="lazy"/>
+                <div className="img">
+                <Image fill src={item.images[0]} alt={item.title} loading="lazy"/>
+                </div>
                 <h3>{item.title}</h3>
                 <div className="flex">
                   <p>{item.price} টাকা</p>
@@ -132,12 +136,14 @@ if (products.length < 4) {
                 <div className="slider-wrapper">
                     <div
                     className="slider-track"
-                    style={{ transform: `translateX(-${index * 260}px)` }} // card width + gap
+                    style={{ transform: `translateX(-${index * 300}px)` }} // card width + gap
                     >
                     {products.map((item) => (
-                        <div className="product-card">
-                          <a href={`/product/${item._id}`} key={item._id}>
-                            <img src={item.images[0]} alt={item.title} loading="lazy"/>
+                        <div className="product-card"  key={item._id}>
+                          <a href={`/product/${item._id}`}>
+                            <div className="img">
+                            <Image fill src={item.images[0]} alt={item.title} loading="lazy"/>
+                            </div>
                             <h3>{item.title}</h3>
                             <div className="flex">
                               <p>{item.price} টাকা</p>

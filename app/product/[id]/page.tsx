@@ -31,7 +31,7 @@ const relatedProducts = JSON.parse(JSON.stringify(
             </section>
             <section className="main-section">
                 <div className="container grid">
-                    <div className="image-container">
+                    <div className="image-gallery">
                         <ImageGallery images={product.images}/>
                     </div>
                     <div className="details">
