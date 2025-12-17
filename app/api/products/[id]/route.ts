@@ -41,16 +41,25 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 
   const stock = JSON.parse(data.get("stock")?.toString() || "[]");
 
-  // Generate single thumbnail from first image
-  let thumbnail = null;
-  if (finalImages.length > 0) {
-    const firstImagePath = path.join(uploadDir, finalImages[0].split("/").pop()!);
-    const thumbFilename = `thumb-${Date.now()}.webp`;
-    const thumbPath = path.join(uploadDir, thumbFilename);
+// Generate single thumbnail from first image
+let thumbnail = null;
+if (finalImages.length > 0) {
+  // Extract the filename from the URL
+  const firstImageFilename = finalImages[0].split("/").pop()!;
+  const firstImagePath = path.join(uploadDir, firstImageFilename);
 
-    await sharp(firstImagePath).resize({ width: 300 }).webp({ quality: 100 }).toFile(thumbPath);
-    thumbnail = `/uploads/${thumbFilename}`;
-  }
+  // Thumb filename: add "thumb-" at start, keep rest of name intact
+  const thumbFilename = `thumb-${firstImageFilename}`;
+  const thumbPath = path.join(uploadDir, thumbFilename);
+
+  // Generate thumbnail
+  await sharp(firstImagePath)
+    .resize({ width: 300 })
+    .webp({ quality: 100 })
+    .toFile(thumbPath);
+
+  thumbnail = `/uploads/${thumbFilename}`;
+}
 
   const updated = await Product.findByIdAndUpdate(
     param.id,
