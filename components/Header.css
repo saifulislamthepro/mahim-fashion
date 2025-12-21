@@ -1,180 +1,103 @@
+header {
+  background-color: #372b30;
+}
 
-header .top-bar {
+
+header .logo-nav{
   width: 100%;
-  padding: 8px;
+  color: gold;
+  align-items: flex-start;
+  padding: 2rem;
 }
 
-header .top-bar section{
-  justify-content: space-between;
+header .logo-nav .menu-container{
+  grid-column: span 4;
+  justify-content: flex-start;
+}
+header .logo-nav .menu-container i,header .logo-nav .menu-container a{
+  margin-right: 1rem;
 }
 
-header .logo-container .icons-container i{
-  font-size: 34px;
+header .logo-nav .menu-container .menu-bar i{
+  font-size: 30px;
 }
-header .logo-container .icons-container .icon-a:first-child{
-  padding-right: 2rem;
-}
-.logo-nav{
-  width: 100%;
-  background-color: #eee;
-}
-.logo-container{
-  gap: 0;
-  align-items: center;
-  width: 100%;
-}
-.logo-container .logo{
-  margin-top: 6px;
-  grid-column: span 3;
-}
-.logo-container .search{
-  grid-column: span 5;
-}
+header .logo-nav .logo-container{
+  grid-column: span 4;
 
-.logo-container .icons-container{
+
+}
+header .logo-nav .logo-container img{
+  width: 150px;
+}
+header .logo-nav .icons-container{
   grid-column: span 4;
   justify-content: flex-end;
 }
-.logo-container .search input{
-  width: 400px;
-  border: 1px solid orange;
-  padding: 1rem;
-}
-
-.logo-container .search button{
-  width: 80px;
-  background-color:  orange;
-  border: none;
-  color: white;
-  border-radius: 0px;
-}
-
-.logo-container .search button, input{
-  height: 40px;
-}
-
-/*Navigation*/
-
-header .navbar-container{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: #ffffff;
-}
-header .navbar-container.scrolled{
-  position: fixed;
-  top: 0;
-  z-index: 100;
-}
-.nav-header section{
-  width: 100%;
-  gap: 0;
-}
-header .navbar-container nav{
-  gap: 0;
-}
-.dropdown{
-  grid-column: span 4;
-  background-color: orange;
-  order: 10;
-  color: #fff;
-}
-.dropdown h3{
-  text-align: right;
-  padding: 16px 0;
-  padding-right: 2rem;
-}
-.dropdown-toggle{
-  position: relative;
-}
-.dropdown-menu{
-  position: absolute;
-  background-color: orange;
-  width: 100%;
-  display: none;
-  z-index: 100;
-}
-.dropdown-menu.dropdown-open{
-  display: flex;
-}
-.dropdown-item{
-  justify-content: flex-start;
-}
-.dropdown-menu a{
-  border-top: 1px solid #eee;
-  width: 100%;
-  height: 100%;
-}
-.dropdown-menu a img{
+header .logo-nav .icons-container .icon-a{
+  height: 50px;
+  width: 50px;
+  background-color: gold;
   margin-left: 1rem;
-  height: 100%;
+  border-radius: 50%;
 }
-.dropdown-menu a h3{
-  padding: 1rem;
+header .logo-nav .icons-container i{
+  color: #333;
 }
-header nav .menu-container{
-  grid-column: span 8;
-}
-header nav .menu-container .links{
+
+header .search-container{
+  display: flex;
   width: 100%;
-  justify-content: space-between;
-  background-color: #fff;
-}
-header nav .links a{
-  padding: 1rem;
-}
-header nav .links a:hover{
-  color: green;
-}
-header nav .links h3{
-  position: relative;
-}
-header nav .links h3::after{
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: orange;
-  transition: width 0.3s ease;
+  padding: 0 2rem;
 }
 
-header nav .links h3:hover::after{
+header .search-container .search-bar{
   width: 100%;
+  display: block;
+  padding-bottom: 2rem;
 }
-.menu-bar{
-  display: none;
+header .search-container input{
+  width: 100%; 
+  box-sizing: border-box;
+  display: block;
+  height: 50px;
+  border-radius: 10px;
+  padding: 0 1rem;
 }
-
-  .logo-container .logo{
-    width: 200px;
-  }
-
-  .logo-container .logo img{
-    width: 100%;
-  }
 @media (max-width:800px) {
   header{
     padding: 0;
   }
-  .menu-bar{
-    display: flex;
-    padding-right: 2rem;
+  header .logo-nav{
+    padding: 1rem;
   }
-  .logo-container{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2rem;
-  }
-  .logo-container .logo{
-    width: 150px;
-  }
-  .logo-container .search{
+
+  header .menu-container .links{
     display: none;
+    position: relative;
+    width: 100%;
   }
+   header .menu-container .links a{
+    margin: 0.5rem 0;
+  }
+    header .menu-container .links.active{
+      position: absolute;
+    display: flex;
+    top: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #513f46;
+    justify-content: flex-start;
+    z-index: 10;
+    padding-left: 1rem;
+    width: 280px;
+  }
+  header .logo-nav .logo-container img{
+  width: 100px;
+}
+header .logo-nav .icons-container .icon-a{
+  height: 30px;
+  width: 30px;
+}
   .navbar-container .dropdown{
     grid-column: span 6;
     z-index: 200;
@@ -185,7 +108,6 @@ header nav .links h3:hover::after{
   }
   .menu-container {
     position: relative;
-    background-color: #fff;
   }
   .navbar-container .links{
     position: absolute;

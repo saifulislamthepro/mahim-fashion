@@ -71,7 +71,9 @@
     justify-content: space-between;
     margin-bottom: 10px;
 }
-
+.order-summary .sizes p{
+    display: inline;
+}
 .order-summary hr{
     margin: 1rem 0;
 }

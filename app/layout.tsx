@@ -7,8 +7,8 @@ import WhatsApp from "@/components/WhatsApp";
 import Providers from "./providers"; // <-- create a wrapper for SessionProvider
 
 export const metadata: Metadata = {
-  title: "Ravaa Fashion",
-  description: "The best fashion store in Dhaka Bangladesh",
+  title: "Mahim Fashion",
+  description: "The best fashion wholeseller store in Dhaka Bangladesh",
 };
 
 export default function RootLayout({

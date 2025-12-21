@@ -1,8 +1,10 @@
-
+.single-product .single-product-container{
+    max-width: 1200px;
+    color: white;
+}
 .single-product .size-quantity{
     height: fit-content;
     flex-direction: column;
-    background-color: #fff;
 }
 .single-product .main-section{
     padding: 0 1rem;
@@ -36,6 +38,7 @@
 
 .single-product .description {
     background-color: #fff;
+    color: #333;
     margin-top: 1rem;
     padding: 1rem;
 }

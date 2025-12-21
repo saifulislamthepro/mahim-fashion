@@ -7,12 +7,12 @@ export default function AboutPage() {
             
             {/* Hero Section */}
             <section className="hero-section flex-column">
-                <h1>About Ravaa Fashion</h1>
+                <h1>About Mahim Fashion</h1>
                 <p>
                 Ravaa Fashion is a premier clothing brand in Bangladesh, dedicated to bringing
                 style, quality, and comfort to modern fashion enthusiasts.
                 </p>
-                <img src="/logo/Rava-Logo-white-Bg.png" alt="Ravaa Fashion" className="hero-img"/>
+                <img src="/logo/Logo.png" alt="Ravaa Fashion" className="hero-img"/>
             </section>
 
             {/* Our Story */}
@@ -56,7 +56,7 @@ export default function AboutPage() {
                 <h2>Meet Our Team</h2>
                 <div className="team-grid">
                 <div className="team-member">
-                    <h4>M. Z. Rayhan</h4>
+                    <h4>Moniruzzaman</h4>
                     <p>MD & CEO</p>
                 </div>
                 <div className="team-member">
@@ -64,15 +64,15 @@ export default function AboutPage() {
                     <p>IT Manager</p>
                 </div>
                 <div className="team-member">
-                    <h4>ASHA ISLAM</h4>
+                    <h4>H ISLAM</h4>
                     <p>Marketing Officer</p>
                 </div>
                 <div className="team-member">
-                    <h4>SHANTA ISLAM</h4>
+                    <h4>S ISLAM</h4>
                     <p>Jr Executive</p>
                 </div>
                 <div className="team-member">
-                    <h4>MD. RATUL</h4>
+                    <h4>MD. R</h4>
                     <p>Jr Graphic Designer</p>
                 </div>
                 </div>

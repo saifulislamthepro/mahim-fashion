@@ -7,13 +7,16 @@ import { useSession, signIn } from "next-auth/react";
 import { usePathname, useSearchParams } from "next/navigation";
 import CheckoutButton from "@/components/CheckoutButton";
 import { v4 as uuidv4 } from "uuid";
-
+type Size  = {
+    name: string;
+    stock: number;
+};
 type CartItem = {
   productId: string;
   title: string;
   price: number;
   images: string[];
-  size: { name: string };
+  size: Size[];
   qty: number;
 };
 
@@ -115,7 +118,7 @@ export default function CheckoutCartPage() {
         items: cart.map(item => ({
           productId: item.productId,
           title: item.title,
-          size: item.size.name,
+          size: item.size.map(s => s.name),
           qty: item.qty,
           price: item.price,
           image: item.images[0],
@@ -279,8 +282,10 @@ export default function CheckoutCartPage() {
 
             {cart.map((it, idx) => (
               <div key={idx} className="grid table-item">
-                <span>
-                  {it.title} (Size {it.size.name})
+                <span className="sizes">
+                  {it.title} <br /> <p>Sizes:</p>{it.size.map((s, i) =><div key={i}>
+                   <p> {s.name}={s.stock}</p>
+                  </div>)}
                 </span>
                 <span>{it.qty}</span>
                 <span>৳{it.price * it.qty}</span>

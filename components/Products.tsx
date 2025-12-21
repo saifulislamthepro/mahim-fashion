@@ -107,7 +107,7 @@ useEffect(() => {
   } else 
 if (products.length <= 4) {
   return (
-    <div className="flex">
+    <div className="flex web-container">
       <section>        
         <div className="web-grid grid">
           {products.map((item) => (

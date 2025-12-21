@@ -1,18 +1,15 @@
 
 
-.login-page{
-    background-color: #fff;
-}
-
-.login-card{
-    margin: 1rem ;
-    background-color: #eee;
-    gap: 5px;
-    max-width: 420px;
-    padding: 10px;
+.login-card a{
+    color: rgb(0, 98, 255);
 }
 /* Card */
 .login-card {
+    margin: 1rem ;
+    gap: 5px;
+    max-width: 420px;
+    padding: 10px;
+  color: gold;
   width: 100%;  
   backdrop-filter: blur(15px);  
   border-radius: 16px;

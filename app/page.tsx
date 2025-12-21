@@ -27,7 +27,7 @@ export default async function Home() {
         <title>Ravaa fashion</title>
         <meta name="description" content="Ravaa fashion is the fastest growing brand in Bangladesh" />
       </head>
-      <div className="hero flex">
+      <div className="flex">
         <Hero />
       </div>
 

@@ -24,34 +24,36 @@ const relatedProducts = JSON.parse(JSON.stringify(
 
     return(
         <div className="single-product page flex">
-            <section>
-                <div className="shortcuts">
-                    <p><a href="/"><i className="fa fa-home" aria-hidden="true"></i></a>   /   <a href={`/category/${product.category}`}>{product.category}</a>   /   <a href={product._id}>{product._id}</a></p>
-                </div>
-            </section>
-            <section className="main-section">
-                <div className="container grid">
-                    <div className="image-gallery">
-                        <ImageGallery images={product.images}/>
+            <div className="single-product-container">
+                <section>
+                    <div className="shortcuts">
+                        <p><a href="/"><i className="fa fa-home" aria-hidden="true"></i></a>   /   <a href={`/category/${product.category}`}>{product.category}</a>   /   <a href={product._id}>{product._id}</a></p>
                     </div>
-                    <div className="details">
-                        <h2>{product.title}</h2>
-                        <SizeQty id={product._id} stock={product.stock} price={product.price} productId={param.id} title={product.title} images={product.images}/>  
+                </section>
+                <section className="main-section">
+                    <div className="container grid">
+                        <div className="image-gallery">
+                            <ImageGallery images={product.images}/>
+                        </div>
+                        <div className="details">
+                            <h2>{product.title}</h2>
+                            <SizeQty id={product._id} stock={product.stock} price={product.price} productId={param.id} title={product.title} images={product.images}/>  
 
-                <div className="description"> 
-                    <h3>Description:</h3> 
-                    <div className="desc-container">
-                        <div className="description-viewer" dangerouslySetInnerHTML={{ __html: product.description }} />
-                    </div>
-                </div> 
+                    <div className="description"> 
+                        <h3>Description:</h3> 
+                        <div className="desc-container">
+                            <div className="description-viewer" dangerouslySetInnerHTML={{ __html: product.description }} />
+                        </div>
+                    </div> 
 
+                        </div>
                     </div>
-                </div>
-                <div className="related">
-                    <h2>Related Products</h2>
-                    <Products products={relatedProducts}/>
-                </div>
-            </section>
+                    <div className="related">
+                        <h2>Related Products</h2>
+                        <Products products={relatedProducts}/>
+                    </div>
+                </section>
+            </div>
         </div>
     )
 }

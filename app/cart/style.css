@@ -4,11 +4,14 @@
 .cart h2{
     text-align: center;
     padding: 2rem 0;
-    background-color: #eee;
+    color: gold;
 }
-
+.cart button{
+    color: #333;
+    font-size: large;
+}
 .cart section{
-    background-color: #eee;
+    max-width: 1200px;
     margin: 1rem 0;
     padding: 1rem;
     gap: 1rem;
@@ -25,7 +28,13 @@ text-align: center;
 gap: 0;
 padding: 1rem 0;
 }
-
+.cart-card .img img{
+width: 100px;
+}
+.sizes p{
+    border: 1px solid gray;
+    padding: 6px;
+}
 .cart-card .functions{
     grid-column: span 6;
 }
@@ -36,7 +45,7 @@ padding: 1rem 0;
     grid-column: span 12;
 }
 .cart-card .qty-control{
-    width: 100px;
+    width: 100%;
     background-color: #fff;
     justify-content: space-between;
     padding: 10px;
@@ -51,6 +60,7 @@ padding: 1rem 0;
     align-items: center;
     margin-top: 10px;
     align-items: center;
+    color: gold;
 }
 .total h3{
     text-align: center;

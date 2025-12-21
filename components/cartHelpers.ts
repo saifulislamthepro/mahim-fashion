@@ -8,7 +8,7 @@ export type CartItem = {
   images: string[];
   productId: string;
   price: number;
-  size: Size;
+  size: Size[];
   qty: number;
 };
 export const clearCart = () => {
@@ -30,7 +30,7 @@ export const addToCart = (item: CartItem) => {
 
   // Check if same item with same size exists
   const existing = cart.find(
-    (i) => i.productId === item.productId && i.size.name === item.size.name
+    (i) => i.productId === item.productId
   );
 
   if (existing) {
@@ -42,12 +42,12 @@ export const addToCart = (item: CartItem) => {
   saveCart(cart);
 };
 
-export const removeFromCart = (productId: string, size: Size) => {
+export const removeFromCart = (productId: string) => {
   const cart = getCart();
 
   // Find the index of the item with matching productId and size
   const index = cart.findIndex(
-    (i) => i.productId === productId && i.size.name === size.name
+    (i) => i.productId === productId
   );
 
   if (index !== -1) {

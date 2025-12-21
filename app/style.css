@@ -1,25 +1,15 @@
 
 
-@media (max-width: 800px) {
-    .hero section{
-        display: block;
-        padding-bottom: 1rem;
-    }
-
-    .hero .hero-texts{
-        margin-bottom: 1rem;
-    }
-}
-
 /*--------categories----------*/
 .categories section{
     padding: 1rem;
-    width: 100%;
+    max-width: 1200px;
 }
 .cat-card{
     margin-top: 2rem;
     grid-column: span 2;
     text-align: center;
+    color: gold;
 }
 
 .cat-card img{
@@ -45,8 +35,12 @@
     padding-top: 2rem;
 }
 /*--------cetagory-product-------*/ 
+.cat-container section{
+  max-width: 1300px;
+}
 .cat-container section .texts{
   grid-column: span 3;
+  color: gold;
 }
 .cat-container section .texts>div{
   padding: 1rem;
@@ -66,8 +60,11 @@
   display: block;
 }
 
+.cat-container section .texts img{
+  width: 50%;
+  height: auto;
 }
-
+}
 
 /*-----------*/
 .search-dropdown {

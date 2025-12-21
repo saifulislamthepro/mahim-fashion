@@ -1,5 +1,6 @@
 .dashboard h1{
     margin: 1rem 0;
+    color: gold;
 }
 .dashboard {
     padding: 0 1rem;
@@ -7,6 +8,8 @@
 
 .dashboard>div>section{
     overflow: hidden;
+    max-width: 1300px;
+    margin-bottom: 2rem;
 }
 
 .dashboard .profile ul li{

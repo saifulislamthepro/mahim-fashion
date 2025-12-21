@@ -282,6 +282,7 @@ export default function CreateProduct() {
                         type="file"
                         multiple
                         accept="image/*"
+                        required
                         onChange={handleImageChange}
                     />
                 </div>

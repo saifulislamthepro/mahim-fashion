@@ -11,6 +11,7 @@ type ProductInfo = {
   productId: string;
   title: string;
   images: string[];
+  size: Size[];
 };
 
 export default function CartPage() {
@@ -18,23 +19,6 @@ export default function CartPage() {
   const [loading, setLoading] = useState(true);
 
 
-  // Increase qty
-  const increase = (index: number) => {
-    const updated = [...cart];
-    updated[index].qty += 1;
-    saveCart(updated);
-    setCart(updated);
-  };
-
-  // Decrease qty
-  const decrease = (index: number) => {
-    const updated = [...cart];
-    if (updated[index].qty > 1) {
-      updated[index].qty -= 1;
-      saveCart(updated);
-      setCart(updated);
-    }
-  };
 
 const clearCart = () => {
   localStorage.removeItem("cart");
@@ -42,8 +26,8 @@ const clearCart = () => {
     setCart(items);
 };
 
-const handleDelete = (id: string, size: Size) => {
-  removeFromCart(id, size);
+const handleDelete = (id: string) => {
+  removeFromCart(id);
     const items = getCart();
     setCart(items);
 }
@@ -55,31 +39,40 @@ const handleDelete = (id: string, size: Size) => {
 
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
+  console.log(cart);
   return (
     <div className="cart page">
       <h2>🛒 Your Cart</h2>
 
       <div className="flex">
         <section>
-            {cart.length === 0 && <p>No items in cart.</p>}
 
             <div className="flex card-container column">
+            {cart.length === 0 && <p>No items in cart.</p>}
 
             { cart.map((item, i) => (
                 <div key={i} className="cart-card"> 
-                <i className="fa-solid fa-circle-xmark" onClick={() => handleDelete(item.productId, item.size)}></i>
-                      <div className="title">
-                        <strong>{item.title} /Size: {item.size.name}</strong>
-                      </div>
-                  {/* Quantity Control */}
-                  <div className="functions flex">          
-                    <div className="qty-control flex">
-                      <button onClick={() => decrease(i)}>-</button>
-                      <strong>{item.qty}</strong>
-                      <button onClick={() => increase(i)}>+</button>
-                    </div>
+                  <div className="img">
+                    <img src={item.images[0]} alt="Product" />
                   </div>
-                  <p>Price: {item.price} × {item.qty} = {item.price * item.qty} tk</p>
+                  <div className="details">
+                    <i className="fa-solid fa-circle-xmark" onClick={() => handleDelete(item.productId)}></i>
+                          <div className="title">
+                            <strong>{item.title} </strong> 
+                            <div className="flex sizes">
+                              Size: {item.size.map((s, i) => 
+                              <p className="flex" key={i}>{s.name}={s.stock}</p>
+                              )}
+                            </div>
+                          </div>
+                      {/* Quantity Control */}
+                      <div className="functions flex">          
+                        <div className="qty-control">
+                          <strong>Product Quantity: {item.qty}</strong>
+                        </div>
+                      </div>
+                      <p>Price: {item.price} × {item.qty} = {item.price * item.qty} tk</p>
+                    </div>
                 </div>
             ))}
             </div>    

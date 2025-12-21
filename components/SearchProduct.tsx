@@ -42,7 +42,8 @@ export default function SearchButton() {
 
     if (!mounted) return null;
     return (
-        <div className="section search-bar" style={{ position: "relative" }}>
+        <div className="search-bar" style={{ position: "relative" }}>
+
             <input
                 type="text"
                 placeholder="...Search products"
@@ -51,9 +52,7 @@ export default function SearchButton() {
                 onFocus={() => filtered.length > 0 && setShowDropdown(true)}
             />
 
-            <button>
-                <i className="fa-solid fa-magnifying-glass"></i>
-            </button>
+
 
             {/* ------ DROPDOWN RESULTS ------ */}
             {showDropdown && filtered.length > 0 && (

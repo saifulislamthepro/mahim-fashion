@@ -25,13 +25,11 @@ a {
 }
 .page{
   min-height: fit-content;
-  background-color: #eee;
+  background-color: #372b30;
 }
 section{
-  max-width: 1300px;
   width: 100%;
 }
-
 .flex{
   display: flex;
   justify-content: center;
@@ -60,7 +58,8 @@ button{
 }
 
 button:hover{
-  background-color: green;
+  background-color: #fff;
+  color: #333;
 }
 .whatsapp-buttun-container{
   height: 80px;

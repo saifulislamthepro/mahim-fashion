@@ -1,16 +1,14 @@
 .about-page {
   font-family: 'Poppins', sans-serif;
-  color: #111;
+  color: gold;
   line-height: 1.6;
-  margin: 1rem 0;
+  background-color: #372b30;
 }
 
 /* Hero Section */
 .hero-section {
   text-align: center;
   padding: 60px 20px;
-  background: orange;
-  color: #fff;
 }
 
 .hero-section h1 {
@@ -24,7 +22,7 @@
 }
 
 .hero-img {
-  max-width: 100%;
+  max-width: 50%;
   border-radius: 12px;
   margin-top: 20px;
 }
@@ -62,7 +60,6 @@
 .mission-section {
   text-align: center;
   padding: 60px 20px;
-  background: #eee;
 }
 
 .mission-cards {
@@ -74,11 +71,11 @@
 }
 
 .mission-cards .card {
-  background: #fff;
   border-radius: 12px;
   padding: 20px;
   width: 250px;
   border-top: 4px solid orange;
+  background-color: #2c2727;
 }
 
 .mission-cards h3 {
@@ -101,7 +98,6 @@
 }
 
 .team-member {
-  background: #fff;
   padding: 20px;
   border-radius: 12px;
   width: 200px;
@@ -115,24 +111,24 @@
 }
 
 .team-member h4 {
+  font-size: 24px;
+  color: #fff;
   margin-bottom: 5px;
-  color: green;
 }
 
 /* Contact Section */
 .contact-section {
   text-align: center;
   padding: 60px 20px;
-  background: Orange;
-  color: #111;
+  color: #fff;
 }
 
 .contact-btn {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 25px;
-  background: Orange;
-  color: #111;
+  color: #333;
+  background-color: gold;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;

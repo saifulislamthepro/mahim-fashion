@@ -1,13 +1,110 @@
-
-
-.category-product-page section h3{
-    text-align: center;
+header .search-container{
+    display: none;
+}
+.category-product-page{
+    padding: 0 2rem;
+}
+.category-product-page section{
     width: 100%;
-    background-color: #eee;
-    padding: 2rem 0;
+    padding: 0;
+}
+
+.category-product-page section .filter-component{
+    grid-column: span 3;
+    color: gold;
+}
+.category-product-page section .products-list{
+    grid-column: span 9;
+}
+.category-product-page section .products-list .search-container{
+    width: 100%;
+}
+.category-product-page section .products-list .search-container .search-bar{
+    width: 100%;
+}
+.category-product-page section .products-list .search-container .search-bar input{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+.category-product-page section .products-list .web-grid{
+    padding: 0;
+}
+.category-product-page section h3{
+    text-align: left;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+/*--------categories----------*/
+.filter-component a{
+    width: 100%;
+}  
+
+.cat-card{
+    text-align: left;
+    justify-content: flex-start;
+    padding: 6px 0;
+    color: gold;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.cat-card img{
+    width:100px;
+}
+
+@media (max-width: 800px) {
+    .category-product-page{
+    padding: 0 1rem;
+}
+    .categories section{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    scrollbar-width: auto;
+    overflow-x: scroll;
+}
+.cat-card{
+    width: 200px;
+}
+
+}
+.category-product-page section{
     margin-bottom: 1rem;
 }
 
-.category-product-page section{
-    margin-bottom: 1rem;
+@media (max-width: 800px) {
+    .category-product-page section{
+        width: 100%;
+    }
+    .category-product-page section{
+        display: flex;
+    }
+.category-product-page section .filter-component{
+    display: none;
+    width: 100%;
+}
+.category-product-page section .filter-component img{
+    width: 40px;
+}
+.category-product-page .products-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.category-product-page .products-list .mobile-grid{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+    .category-product-page .products-list .mobile-product {
+    width: 200px;
+}
+    .category-product-page .products-list .web-product .img{
+    height: 100px;
+}
 }

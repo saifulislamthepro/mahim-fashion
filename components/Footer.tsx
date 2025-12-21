@@ -18,8 +18,8 @@ if (!mounted) return null;
             <div className="footer-container">
                 { /* <!-- Brand --> */}
                 <div className="footer-section">
-                <h2>Ravaa</h2>
-                <p>Ravaa — A Bangladeshi fashion brand bringing premium quality and everyday style together.</p>
+                <h2>Mahim fashion</h2>
+                <p>Mahim Fashion — A Bangladeshi fashion brand bringing premium quality and everyday style together.</p>
                 </div>
 
                 { /* <!-- Navigation --> */}
@@ -37,8 +37,8 @@ if (!mounted) return null;
                 <div className="footer-section">
                 <h3>Contact</h3>
                 <ul className="contact">
-                    <li><i className="fas fa-envelope"></i> info@ravaabd.com</li>
-                    <li><i className="fas fa-map-marker-alt"></i> flat: 9A, House: 137/10, SR Plaza (9th floor),  <br />Mazar Road, Mirpur-01, Dhaka-1216, Bangladesh </li>
+                    <li><i className="fas fa-envelope"></i> info@mahimfashion.com</li>
+                    <li><i className="fas fa-map-marker-alt"></i> flat: 7A, House: 237/10, Protibondi tower,  <br /> Dhaka-1216, Bangladesh </li>
                 </ul>
                 </div>
 
@@ -46,12 +46,12 @@ if (!mounted) return null;
                 <div className="footer-section">
                 <h3>Follow Us</h3>
                 <div className="social-icons">
-                    <a href="https://www.facebook.com/ravaafashion" 
+                    <a href="" 
                         target="_blank"
                         rel="noopener noreferrer"
                         ><i className="fab fa-facebook-f"></i></a>
 
-                    <a href="https://www.youtube.com/@RavaaFashion"
+                    <a href=""
                         target="_blank"
                         rel="noopener noreferrer"
                         ><i className="fab fa-youtube"></i></a>

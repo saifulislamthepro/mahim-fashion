@@ -26,7 +26,6 @@ export async function POST(req: Request) {
   // Handle image uploads
   const images = data.getAll("images") as File[];
   const savedImagePaths: string[] = [];
-  const thumbnails: string[] = [];
 
 for (const image of images) {
   const bytes = Buffer.from(await image.arrayBuffer());
@@ -36,20 +35,26 @@ for (const image of images) {
   // Save original image
   await fs.promises.writeFile(filepath, bytes);
   savedImagePaths.push(`/uploads/${filename}`);
-
-  // Generate thumbnail for product lists (e.g., 300px width)
-  const thumbFilename = `thumb-${filename.replace(/\s/g, "-").split(".")[0]}.webp`;
-  const thumbPath = path.join(uploadDir, thumbFilename);
-
-  // ✅ Use 'bytes' instead of 'buffer'
-  await sharp(bytes)
-    .resize({ width: 300 })
-    .webp({ quality: 100 })
-    .toFile(thumbPath);
-
-  thumbnails.push(`/uploads/${thumbFilename}`);
 }
-
+  // Generate single thumbnail from first image
+  let thumbnail = null;
+  if (savedImagePaths.length > 0) {
+    // Extract the filename from the URL
+    const firstImageFilename = savedImagePaths[0].split("/").pop()!;
+    const firstImagePath = path.join(uploadDir, firstImageFilename);
+  
+    // Thumb filename: add "thumb-" at start, keep rest of name intact
+    const thumbFilename = `thumb-${firstImageFilename}.webp`;
+    const thumbPath = path.join(uploadDir, thumbFilename);
+  
+    // Generate thumbnail
+    await sharp(firstImagePath)
+      .resize({ width: 300 })
+      .webp({ quality: 100 })
+      .toFile(thumbPath);
+  
+    thumbnail = `/uploads/${thumbFilename}`;
+  }
 
   // Parse stock
   let stock = [];
@@ -76,7 +81,7 @@ for (const image of images) {
     images: savedImagePaths,
     description: data.get("description"),
     featured: false,
-    thumbnail: thumbnails[0]
+    thumbnail
   });
 
   await product.save();
