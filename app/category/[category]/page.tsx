@@ -34,7 +34,7 @@ export default async function ({ params }: { params: Promise<{ category: string 
                         <div className="search-container flex">
                         <SearchButton/>
                         </div>
-                    <Products products={products}/>
+                        <Products products={products}/>
                     </div>
                 </section>
             </div>

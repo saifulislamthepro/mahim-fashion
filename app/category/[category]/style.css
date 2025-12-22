@@ -25,16 +25,17 @@ header .search-container{
 .category-product-page section .products-list .search-container .search-bar input{
     width: 100%;
     height: 50px;
-    margin-bottom: 1rem;
     border-radius: 5px;
 }
 .category-product-page section .products-list .web-grid{
     padding: 0;
 }
+.category-product-page section .products-list .web-grid .product{
+    padding: 0;
+}
 .category-product-page section h3{
     text-align: left;
     width: 100%;
-    margin-bottom: 1rem;
 }
 /*--------categories----------*/
 .filter-component a{
@@ -97,14 +98,19 @@ header .search-container{
 .category-product-page .products-list .mobile-grid{
     display: flex;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
     justify-content: space-between;
 }
     .category-product-page .products-list .mobile-product {
     width: 200px;
 }
+    .category-product-page .products-list .mobile-product h3{
+        font-size: 22px;
+   padding: 6px;
+}
+.mobile-product div p:first-child{
+    font-size: 18px;
+}
     .category-product-page .products-list .web-product .img{
-    height: 100px;
+    height: 200px;
 }
 }

@@ -142,7 +142,7 @@
     height: 180px;
   }
   .mobile-product div p:first-child, .web-product div p:first-child, .product-card div p:first-child {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   color: gold;
 }
