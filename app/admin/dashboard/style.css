@@ -15,37 +15,6 @@ footer{
     padding: 1rem;
 }
 
-.profile-component{
-    order: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.profile-component h2{
-    display: none;
-}
-
-.profile-component img{
-    width: 50px;
-}
-
-.profile-component ul{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-    list-style: none;
-}
-.profile-component ul li:last-child{
-    display: none;
-}
-
 .admin-dashboard .heading .logout{
     font-size: 24px;
     cursor: pointer;
@@ -53,11 +22,19 @@ footer{
     order: 3;
 
 }
+
+.admin-dashboard .heading  i{
+    font-size: 30px;
+    margin-left: 4rem;
+    cursor: pointer;
+
+}
 .admin-dashboard .heading .logout:hover::after{
     content: "Logout";
     position: absolute;
-    top: 20;
+    top: 28;
     right: 0;
+    font-size: 18px;
     
 }
 

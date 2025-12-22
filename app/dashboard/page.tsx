@@ -69,7 +69,6 @@ export default async function DashboardPage() {
                   <ul>
                     <li><strong>Name: </strong>{session?.user.name}</li>
                     <li><strong>Email: </strong>{session?.user.email}</li>
-                    <li><strong>Role: </strong>{session?.user.role}</li>
                   </ul>
                 </div>
                 <h2>Account Settings</h2>
@@ -77,6 +76,7 @@ export default async function DashboardPage() {
                   <button>
                     <i className="fa fa-cog" aria-hidden="true"></i>Account Settings
                   </button>
+                  {(session?.user.role === "admin")?<a href="/admin/dashboard"> <button>Admin Dashboard</button></a> : ""}                  
                   <LogOutComp/>
                 </div>
               </div>

@@ -1,11 +1,13 @@
 
-header, footer{
+.main-page header,.main-page footer{
     display: none;
 }
 .main-page{
     min-height: 100vh;
 }
-
+.main-page section{
+    max-width: 800px;
+}
 .main-page h2{
     text-align: center;
 }

@@ -31,16 +31,11 @@
 .related h2{
     margin-top: 2rem;
 }
-.related .products section{
-    margin: 0;
-    padding: 0;
-}
 
 .single-product .description {
     background-color: #fff;
     color: #333;
     margin-top: 1rem;
-    padding: 1rem;
 }
 
 .single-product .description ul {

@@ -23,7 +23,7 @@ export default function AdminDashboardPage() {
         <div className="admin-dashboard">
             <div className="heading flex">
                 <h1>Admin Dashboard</h1>
-                <div className="logout"><i className="fa-solid fa-right-from-bracket"></i></div>
+                <div ><a href="/dashboard"><i className="fa-solid fa-circle-user"></i></a><i className="fa-solid fa-right-from-bracket logout"></i></div>
             </div>
             <div className="flex">
                 <section className="grid">

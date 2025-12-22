@@ -10,6 +10,7 @@
     overflow: hidden;
     max-width: 1300px;
     margin-bottom: 2rem;
+    height: 80vh;
 }
 
 .dashboard .profile ul li{
@@ -17,11 +18,14 @@
 }
 .dashboard .profile{
     background-color: #fff;
-    border-radius: 10px;
     padding: 1rem;
     height: fit-content;
     grid-column: span 4;
     position: sticky;
+}
+.dashboard .profile .settings a{
+  width: 100%;
+  height: 100%;
 }
 .dashboard .profile-component{
     gap: 1rem;
@@ -30,17 +34,20 @@
     padding: 10px ;
     margin: 5px 0;
     width: 100%;
+    font-size: 18px;
+    text-align: left;
+    color: #333;
 }
 
 /* --- Orders Section --- */
 .dashboard .orders{
     grid-column: span 8;
-    height: fit-content;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .order-card {
   background-color: #fff;
-  border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   width: 100%;
@@ -113,6 +120,7 @@
 @media (max-width: 800px) {
     .dashboard>div>section{
         display: block;
+        height: 100%;
     }
 
     .dashboard .profile{

@@ -58,6 +58,10 @@
 @media (max-width: 800px) {
     .cat-container section {
   display: block;
+  padding: 0 1rem;
+}
+.featured-products{
+  padding: 0 1rem;
 }
 
 .cat-container section .texts img{

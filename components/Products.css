@@ -59,7 +59,7 @@
 /* Text */
 .product-card h3, .mobile-product h3, .web-product h3 {
   font-size: 20px;
-  margin: 10px 0;
+  margin: 5px 0;
   color: #fff;
 }
 
@@ -83,6 +83,7 @@
 
 .mobile-product div, .web-product div, .product-card div{
   justify-content: space-between;
+  padding: 0 6px;
 }
 .mobile-product h3, .web-product h3, .product-card h3{
   justify-content: space-between;
@@ -92,7 +93,6 @@
   font-size: 18px;
   font-weight: 600;
   color: gold;
-  padding: 1rem;
 }
 .mobile-product div p:last-child, .web-product div p:last-child, .product-card div p:last-child{
   font-size: 16px;
@@ -102,7 +102,6 @@
   cursor: pointer;
   color: #333;
   background-color: gold;
-  margin-right: 1rem;
 }
 .web-grid{
   padding: 1rem 0;
@@ -142,7 +141,23 @@
   .cat .mobile-product .img, .mobile-product .img{
     height: 180px;
   }
-  .web-grid, .mobile-grid{
-    padding: 1rem;
-  }
+  .mobile-product div p:first-child, .web-product div p:first-child, .product-card div p:first-child {
+  font-size: 14px;
+  font-weight: 600;
+  color: gold;
+}
+.mobile-product div p:last-child, .web-product div p:last-child, .product-card div p:last-child{
+  font-size: 14px;
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #333;
+  background-color: gold;
+}
+
+.mobile-product h3{
+  font-size: 18px;
+  padding: 0 5px;
+}
 }
