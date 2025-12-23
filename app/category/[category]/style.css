@@ -101,14 +101,14 @@ header .search-container{
     justify-content: space-between;
 }
     .category-product-page .products-list .mobile-product {
-    width: 200px;
+    width: 170px;
 }
     .category-product-page .products-list .mobile-product h3{
-        font-size: 22px;
+        font-size: 18px;
    padding: 6px;
 }
 .mobile-product div p:first-child{
-    font-size: 18px;
+    font-size: 16px;
 }
     .category-product-page .products-list .web-product .img{
     height: 200px;
