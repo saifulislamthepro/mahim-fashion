@@ -54,7 +54,9 @@ width: 100px;
     padding:  4px 10px;
 }
 
-
+.card-container .no-item{
+    color: #fff;
+}
 .total{
     margin-top: 1rem;
     align-items: center;
