@@ -40,7 +40,6 @@ const relatedProducts = JSON.parse(JSON.stringify(
                             <SizeQty id={product._id} stock={product.stock} price={product.price} productId={param.id} title={product.title} images={product.images}/>  
 
                     <div className="description"> 
-                        <h3>Description:</h3> 
                         <div className="desc-container">
                             <div className="description-viewer" dangerouslySetInnerHTML={{ __html: product.description }} />
                         </div>
