@@ -8,12 +8,15 @@ import { connectDB } from "@/lib/db";
 import Order from "@/models/Order";
 import { Key } from "react";
 
-
+type size= [{
+  name: string;
+  stock: number;
+}]
 type Item = {
   _id: Key;
   productId: string;
   title: string;
-  size: string;
+  size: size;
   qty: number;
   price: number;
   image: string;
@@ -94,7 +97,7 @@ export default async function DashboardPage() {
                               <img src={p.image.toString()} alt={p.title} width={80} height={80} />
                               <div className="item-details">
                                 <h3>{p.title}</h3>
-                                <p><strong>Size:</strong> {p.size}</p>
+                                <p><strong>Size:</strong> {p.size.map((s, i) => (<p key={i}>{s.name} = {s.stock}</p>))}</p>
                                 <p><strong>Qty:</strong> {p.qty}</p>
                                 <p><strong>Price:</strong> {p.price} BDT</p>
                                 <p><strong>Total:</strong> {p.total} BDT</p>

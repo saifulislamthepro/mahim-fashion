@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import "./Orders.css";
+import { ProductType } from "@/types/product";
 
+type size= {
+  name: string;
+  stock: number;
+}
 export default function AdminOrdersPage() {
   const [orders, setOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,6 +53,31 @@ export default function AdminOrdersPage() {
     console.error(err);
     alert("Failed to update");
   }
+};  // Change status
+  const CancelOrder = async (orderId: string) => {
+  try {
+    const res = await fetch(`/api/admin/orders/${orderId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: "canceled" }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data?.order) {
+      setOrders((prev) =>
+        prev.map((o) =>
+          o._id === orderId ? { ...o, status: "canceled" } : o
+        )
+      );
+      alert("Order Canceled!");
+    } else {
+      alert("Failed to update");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Failed to update");
+  }
 };
 
 
@@ -85,7 +115,7 @@ export default function AdminOrdersPage() {
                     <img src={item.image} alt={item.title} />
                     <div>
                       <p><strong>{item.title}</strong></p>
-                      <p>Size: {item.size}</p>
+                      <div>Size: {item.size.map((s: size, i: any) => <p key={i}>{s.name} = {s.stock}</p>)}</div>
                       <p>Qty: {item.qty}</p>
                       <p>৳{item.price}</p>
                     </div>
@@ -97,12 +127,21 @@ export default function AdminOrdersPage() {
                 <p><strong>Zone:</strong> {order.shippingZone}</p>
                 <p><strong>Notes:</strong> {order.notes || "No notes"}</p>
 
-                {order.status !== "CANCELED" || order.status !== "FAILED" || order.status !== "Delivered" && (
+                {(order.status === "pending" || order.status === "paid") && (
                   <button
                     className="deliver-btn"
                     onClick={() => markDelivered(order._id)}
                   >
                     Mark as Delivered
+                  </button>
+                )}
+
+                {(order.status === "pending") && (
+                  <button
+                    className="deliver-btn"
+                    onClick={() => CancelOrder(order._id)}
+                  >
+                    Cancel Order
                   </button>
                 )}
               </div>

@@ -6,6 +6,7 @@
 .orders-grid {
   display: grid;
   gap: 20px;
+    grid-template-rows: repeat(3, 1fr);
 }
 
 /* Mobile 1 column */
@@ -80,7 +81,9 @@
   gap: 10px;
   margin-bottom: 10px;
 }
-
+.item-row .size{
+  border: 1px solid gray;
+}
 .item-row img {
   width: 60px;
   height: 60px;
