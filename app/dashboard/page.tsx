@@ -94,10 +94,10 @@ export default async function DashboardPage() {
                         <div className="order-items">
                           {o.items.map((p) => (
                             <div className="order-item flex" key={p._id}>
-                              <img src={p.image.toString()} alt={p.title} width={80} height={80} />
+                              <img src={p.image.toString()} alt={p.title} width={200} height={200} />
                               <div className="item-details">
                                 <h3>{p.title}</h3>
-                                <p><strong>Size:</strong> {p.size.map((s, i) => (<p key={i}>{s.name} = {s.stock}</p>))}</p>
+                                <div><strong>Size:</strong> {p.size.map((s, i) => (<p key={i}>{s.name} = {s.stock}</p>))}</div>
                                 <p><strong>Qty:</strong> {p.qty}</p>
                                 <p><strong>Price:</strong> {p.price} BDT</p>
                                 <p><strong>Total:</strong> {p.total} BDT</p>

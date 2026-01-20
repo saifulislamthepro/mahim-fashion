@@ -35,16 +35,12 @@ export default function AdminDashboardPage() {
                             <li onClick={() => {setShowContent("products")}} className={showContent === "products" ? "active" : ''}><i className="fa fa-sitemap" aria-hidden="true"></i>Products</li>
                             <li onClick={() => {setShowContent("orders")}} className={showContent === "orders" ? "active" : ''}><i className="fa fa-cart-arrow-down" aria-hidden="true"></i>Orders</li>
                             <li onClick={() => {setShowContent("customers")}} className={showContent === "customers" ? "active" : ''}><i className="fa fa-user" aria-hidden="true"></i>Customers</li>
-                            <li onClick={() => {setShowContent("reports")}} className={showContent === "reports" ? "active" : ''}><i className="fa fa-bar-chart" aria-hidden="true"></i>Reports</li>
                             <li onClick={() => {setShowContent("settings")}} className={showContent === "settings" ? "active" : ''}><i className="fa fa-cog" aria-hidden="true"></i>Settings</li>
                         </ul>
                     </div>
                     <div className="main-content">
                         <h2>Welcome to the Admin Dashboard</h2>
                         <MainPage activeSidebar={showContent}/>
-                    </div>
-                    <div className="notifications">
-                        <h2><i className="fa fa-bell" aria-hidden="true"></i>Notifications</h2>
                     </div>
                 </section>
             </div>
