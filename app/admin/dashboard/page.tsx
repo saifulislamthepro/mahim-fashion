@@ -21,14 +21,9 @@ export default function AdminDashboardPage() {
 
     return (
         <div className="admin-dashboard">
-            <div className="heading flex">
-                <h1>Admin Dashboard</h1>
-                <div ><a href="/dashboard"><i className="fa-solid fa-circle-user"></i></a><i className="fa-solid fa-right-from-bracket logout"></i></div>
-            </div>
-            <div className="flex">
+            <div className="flex layout-container">
                 <section className="grid">
                     <div className="sidebar">
-                        <h2>Sidebar</h2>
                         <ul>
                             <li onClick={() => {setShowContent("overview")}} className={showContent === "overview" ? "active" : ''}><i className="fa fa-home" aria-hidden="true"></i>Overview</li>
                             <li onClick={() => {setShowContent("create")}} className={showContent === "create" ? "active" : ''}><i className="fa fa-plus-square" aria-hidden="true"></i>Create</li>
