@@ -21,9 +21,6 @@
     scrollbar-width: auto;
     overflow-x: scroll;
 }
-.cat-card{
-    width: 200px;
-}
 
 }
 /*--------Featured-----------*/
@@ -61,6 +58,9 @@
 .featured-products{
   padding: 0 1rem;
 }
+.cat-group{
+  max-width: 260px;
+}
 
 }
 
@@ -78,4 +78,17 @@
 .cat-group{
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+
+.cat-group img{
+  height:auto;
+  width: 100%;
+}
+
+.cat-group h1{
+  position: absolute;
+  bottom: 40;
+  color: white;
 }

@@ -50,7 +50,7 @@ export default async function Home() {
               {/* LEFT SIDE */}
                <a className="texts" href={`category/${cat.slug}`}>
                 <div className="flex cat-group">
-                  {cat.image &&<img src={cat.image} alt={cat.slug} width={160} height={190} />}
+                  {cat.image &&<img src={cat.image} alt={cat.slug} />}
                   <h1>{cat.name}</h1>
                 </div>
               </a>
