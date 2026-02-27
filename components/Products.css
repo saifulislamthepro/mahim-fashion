@@ -126,7 +126,7 @@
 }
 .web-product img, .mobile-product  img, .product-card  img{
   width: 100%;
-  height: auto;
+  max-height: 280px;
 }
 
 @media (max-width:800px) {
