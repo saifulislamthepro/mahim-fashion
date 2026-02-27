@@ -17,7 +17,8 @@ export default function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [Categories, setCategories] = useState<Category[]>([]);
-  const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
 
   // Fetch categories
   const fetchCategories = async () => {
@@ -28,6 +29,10 @@ export default function Navbar() {
 
   const handleMenuClick = () => {
     setOpenMenu(!openMenu);
+  }
+
+  const handleSearchClick = () => {
+    setOpenSearch(!openSearch);
   }
   // Effects
   useEffect(() => {
@@ -78,6 +83,10 @@ export default function Navbar() {
 
 
           <div className="icons-container flex">
+            <div className="search icon-a flex" onClick={() => {handleSearchClick()}}>
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </div>
+            
               {/* Cart */}
               <a href="/cart" className="icon-a flex">
                 <i className="fa fa-shopping-cart"></i>
@@ -90,9 +99,12 @@ export default function Navbar() {
             </div>
         </section>
 
-          <section className="search-container grid">
-              <SearchButton/>
-          </section>
+              <div className="search-div">
+            
+                  <div className={`search-container${openSearch? " active-search" : ""}`}>
+                      <SearchButton/>
+                  </div>
+              </div>
         {/* 
       <div className="flex nav-header">
 

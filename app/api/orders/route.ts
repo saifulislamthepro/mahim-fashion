@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Order from "@/models/Order";
-import User from "@/models/User";
 
 export async function POST(req: Request) {
   try {
@@ -70,6 +69,7 @@ export async function POST(req: Request) {
       createdAt: new Date(),
     });
 
+    console.log(items);
     return NextResponse.json({ success: true, order });
   } catch (error) {
     console.error("ORDER API ERROR:", error);

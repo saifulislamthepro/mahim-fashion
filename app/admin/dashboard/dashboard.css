@@ -1,0 +1,218 @@
+.admin-container{
+    background-color: #ffffff;
+}
+.admin{
+  --background: #ffffff;
+  --foreground: #000000;
+
+  --text-primary: #000;
+  --text-secondary: #666;
+
+  --button-primary: #eeeeee;
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+  --button-secondary-border: #ebebeb;
+
+    max-width: 800px;
+    background: var(--background);
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 0 2px solid var(--button-secondary-border);
+    min-height: 90vh;
+    overflow: hidden;
+    margin-top: 60px;
+    display: flex;
+}
+
+ .content{
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+    padding: 1rem;
+    
+}
+
+
+header .logo-nav{
+  display: none;
+}
+
+header .search-container{
+    display: none;
+}
+
+footer{
+    display: none;
+}
+/*------Sidebar------*/
+.sidebar{
+    height: 90vh;
+    border-right: 2px solid var(--button-secondary-border);
+    border-left: 2px solid var(--button-secondary-border);
+    min-width: 200px;
+    max-width: 250px;
+    width: 100%;
+    background: var(--background);
+}
+
+@media (max-width: 600px) {
+    .sidebar{
+        position: fixed;
+        left: -100%;
+        width: 200px;
+    }
+
+    .sidebar.menu-active{
+        left: 0;
+    }
+    .content{
+        margin-left: 200px;
+    }
+    .content.active{
+        margin-left: 0;
+    }
+
+}
+.sidebar h2{
+    padding: 1rem;;
+}
+.sidebar nav{
+    flex-direction: column;
+    gap: 2px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 400px;
+    width: 100%;
+}
+.sidebar nav a{
+    width: 100%;
+    color: var(--button-primary-hover);
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 20px;
+    padding-left: 1.5rem;
+    display: flex;
+}
+
+.sidebar nav a i{
+    display: flex;
+    margin-right: 1rem;
+    position: relative;
+}
+.sidebar nav a:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+.sidebar nav a.active{
+    background: var(--button-primary-hover);
+    color: var(--background);
+}
+@media (prefers-color-scheme: dark) {
+    .admin{
+    --background: #111;
+    --foreground: #222;
+    }
+    .sidebar nav a{
+        background: var(--foreground);
+        color: var(--button-primary);
+    }
+    .sidebar nav a.active{
+        color: var(--button-primary-hover);
+        background: var(--button-primary);
+}
+
+}
+
+/*------Topbar-----------*/
+
+.topbar-container{
+    top: 0;
+    max-width: 800px;
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+}
+/* Top bar */
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--background); /* dark background */
+  color: var(--text-primary); /* light text */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  max-width: 1200px;
+  width: 100%;
+    border-bottom: 2px solid var(--button-secondary-border);
+}
+/* Left side (arrows) */
+.topbar-left {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+
+/* Right side (logo + home link) */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.topbar-right .bars{
+    display: none;
+}
+.topbar-right .cross{
+    display: none;
+}
+.topbar-right .bars i{
+    font-size: 32px;
+}
+@media (max-width: 600px) {
+    .topbar-right .bars.active{
+        display: flex;
+    }
+
+    .topbar-right .cross.active{
+        display: flex;
+        font-size: 32px;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .admin-container{
+    background-color: #060606;
+}
+    .admin{
+        background-color: #000;
+        color: #fff;
+    }
+    .topbar{
+        --text-primary: #fff
+    }
+}
+
+

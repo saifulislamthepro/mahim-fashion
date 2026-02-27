@@ -21,19 +21,16 @@ export default async function ({ params }: { params: Promise<{ category: string 
         <div className="category-product-page page">
             <div className="flex">
                 <section className="grid">
-                    <div className="filter-component">
+                    <div className="filter-component flex">
                         {categories.map((cat: CategoryType, i: number) => (
-                        <a href={`${cat.slug}`} className="cat-card flex" key={i}>
+                        <a href={`${cat.slug}`} className="categories-cat-card flex column" key={i}>
                             {cat.image && 
-                            <img className="img" src={cat.image} alt={cat.name} />}
+                            <img src={cat.image} alt={cat.name}   />}
                             <h2>{cat.name}</h2>
                         </a>
                         ))}
                     </div>
                     <div className="products-list">
-                        <div className="search-container flex">
-                        <SearchButton/>
-                        </div>
                         <Products products={products}/>
                     </div>
                 </section>

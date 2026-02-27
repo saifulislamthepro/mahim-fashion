@@ -4,9 +4,9 @@ import "./style.css";
 import { connectDB } from "@/lib/db";
 import Product from "@/models/Product";
 import Category from "@/models/Category";
+import Image from "next/image";
 
 import Categories from "@/components/Categories";
-import Featured from "@/components/Featured";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 
@@ -49,8 +49,8 @@ export default async function Home() {
             <section className="grid" key={cat.slug}>
               {/* LEFT SIDE */}
                <a className="texts" href={`category/${cat.slug}`}>
-                <div className="flex ">
-                  {cat.image &&<img src={cat.image} alt={cat.slug}/>}
+                <div className="flex cat-group">
+                  {cat.image &&<Image src={cat.image} alt={cat.slug} width={160} height={190} loading="lazy" />}
                   <h1>{cat.name}</h1>
                 </div>
               </a>

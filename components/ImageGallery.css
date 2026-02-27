@@ -5,13 +5,21 @@
   position: relative;
   width: 100%;
   height: fit-content;
-  overflow: hidden; 
-  touch-action: pan-y pinch-zoom;
-}
+  overflow: hidden;   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 
+}
+.gallery-container .image-container {
+  touch-action: pan-y; /* allow vertical scrolling */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
 .gallery-container .image-container img{
   width: 100%;
   height: auto;
+}
+
+.main-image {
+  pointer-events: none; /* let touches pass through */
 }
 /* Zoom active */
 .zoom-active {

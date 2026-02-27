@@ -1,5 +1,6 @@
 
 .hero{
+  margin-top: 60px;
   width: 100%;
 }
 
@@ -19,11 +20,13 @@
   font-size: 50px;
   margin-bottom: 1rem;
 }
-.btn-div{
+.hero-texts, .btn-div{
   grid-column: span 4;
   grid-row: span 1;
   justify-content: flex-end;
   align-items: flex-end;
+  background-color: rgba(199, 178, 16, 0.05); /* Gold with transparency */
+  padding: 8px 1rem;
 }
 .btn-container{
   width: 100%;
@@ -39,8 +42,8 @@
   width: 60%;
   height: 100%;
   font-size: larger;
-  background-color: #fff;
-  color: #333;
+  background-color: #c7b210;
+  color: #000000;
   cursor: pointer;
 }
 .btn-container .arrow-container{
@@ -57,18 +60,21 @@
   border: 1px solid gray;
   font-size: large;
   cursor: pointer;
+  color: gold;
 }
  .btn-container .arrow-container button:hover{
   background-color: gold;
+  color: black;
 }
 .hero .hero-products{
   grid-column: span 8;
   grid-row: span 2;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .hero .hero-products img{
- width: 100%;
+  max-height: 300px;
+  width: auto;
 }
 
 
@@ -83,7 +89,8 @@
   margin-bottom: 2rem;
   flex-direction: row;
 }
-.hero .hero-products a{
-  width: 140px;
+.hero .hero-products img{
+  max-height: 200px;
+  display: flex;
 }
 }

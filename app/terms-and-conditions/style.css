@@ -1,0 +1,26 @@
+.tandc{
+    color: #fff;
+    padding-bottom: 100px;
+}
+
+.tandc section{
+    max-width: 1200px;
+    width: 100%;
+    background-color:  #3e3036;
+    padding: 1rem;
+}
+
+.tandc li, p{
+    letter-spacing: 1.5px;
+}
+.tandc  p{
+    margin-left: 1rem;
+}
+.tandc  li{
+    margin-left: 2rem;
+}
+.tandc h2{
+    font-size: 18px;
+    margin-top: 1.5rem;
+    letter-spacing: 2px;
+}

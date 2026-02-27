@@ -1,6 +1,7 @@
 
 .checkout section{
     margin-bottom: 2rem;
+    padding: 2rem;
 }
 .page-title {
     width: 100%;
@@ -10,6 +11,8 @@
     background-color: #eee;
     margin-bottom: 2rem;
 }
+
+
 .checkout form, .checkout .order-summary {
     grid-column: span 6;
     background-color: #eee;
@@ -93,6 +96,7 @@
     .checkout section{
         display: flex;
         flex-direction: column;
+        padding: 1rem;
     }
     .checkout form {
     order: -5;

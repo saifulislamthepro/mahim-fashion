@@ -3,6 +3,7 @@
 .products-container{
     background: none;
     background-color: #372b30;
+    padding-top: 60px;
 }
 .products-container>div>section{
     max-width: 1300px;

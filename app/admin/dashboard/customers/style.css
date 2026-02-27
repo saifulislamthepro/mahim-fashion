@@ -1,0 +1,95 @@
+/* CONTAINER */
+.users-list-container {
+  min-height: 100%;
+}
+
+/* TITLE */
+.users-list-container h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* SEARCH INPUT */
+.search-input {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.search-input::placeholder {
+  opacity: 0.6;
+}
+
+.search-input:focus {
+  outline: none;
+  border-width: 1px;
+}
+
+/* TABLE */
+.users-table {
+  background: #dadada;
+  width: 100%;
+  border-collapse: collapse;  
+  border: 1px solid gray;
+  font-size: 0.85rem;
+  font-size: 16px;
+  overflow-x: auto;
+}
+
+/* HEADER */
+.users-table thead {
+  border-bottom: 1px solid currentColor;
+}
+
+.users-table th {
+  text-align: left;
+  padding: 0.7rem ;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* BODY */
+.users-table td {
+  padding: 0.7rem;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.85;
+}
+
+/* ROW HOVER */
+.users-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* EMPTY STATE */
+.users-table td[colspan] {
+  text-align: center;
+  padding: 1.2rem;
+  opacity: 0.6;
+}
+
+/* ROLE */
+.users-table td:nth-child(3) {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .users-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  /* TABLE */
+.users-table {
+  background: #1d1d1d;
+}
+}

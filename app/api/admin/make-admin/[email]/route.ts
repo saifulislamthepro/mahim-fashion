@@ -6,6 +6,9 @@ export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ email: string }> }
 ) {
+
+  const data = await req.json();
+  const newRole = data.role;
   await connectDB();
 
   // params is now a Promise
@@ -17,7 +20,7 @@ export async function POST(
     return NextResponse.json({ message: "User not found" }, { status: 404 });
   }
 
-  user.role = "admin";
+  user.role = newRole;
   await user.save();
 
   return NextResponse.json({ message: "User upgraded to admin" });

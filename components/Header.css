@@ -1,13 +1,13 @@
 header {
-  background-color: #372b30;
+  background-color: #4c3a41;
 }
 
 
 header .logo-nav{
   width: 100%;
   color: gold;
-  align-items: flex-start;
-  padding: 2rem;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 header .logo-nav .menu-container{
@@ -17,7 +17,9 @@ header .logo-nav .menu-container{
 header .logo-nav .menu-container i,header .logo-nav .menu-container a{
   margin-right: 1rem;
 }
-
+header .logo-nav .menu-container .menu-bar {
+  display: none;
+}
 header .logo-nav .menu-container .menu-bar i{
   font-size: 30px;
 }
@@ -27,7 +29,7 @@ header .logo-nav .logo-container{
 
 }
 header .logo-nav .logo-container img{
-  width: 150px;
+  width: 130px;
 }
 header .logo-nav .icons-container{
   grid-column: span 4;
@@ -39,21 +41,30 @@ header .logo-nav .icons-container .icon-a{
   background-color: gold;
   margin-left: 1rem;
   border-radius: 50%;
+  cursor: pointer;
 }
 header .logo-nav .icons-container i{
   color: #333;
 }
 
-header .search-container{
-  display: flex;
+ .search-container{
+  position: absolute;
+  display: none;
+  max-width: 400px;
   width: 100%;
   padding: 0 2rem;
+  right: 0;
 }
-
+.active-search{
+   display: block;
+   margin-top: 1rem;
+  padding: 0 2rem;
+}
 header .search-container .search-bar{
   width: 100%;
   display: block;
   padding-bottom: 2rem;
+  height: 60px;
 }
 header .search-container input{
   width: 100%; 
@@ -150,5 +161,7 @@ header .logo-nav .icons-container .icon-a{
   grid-column: span 6;
   padding: 0;
 }
-
+header .logo-nav .menu-container .menu-bar {
+  display: block;
+}
 }

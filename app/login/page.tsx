@@ -2,8 +2,8 @@
 export const dynamic = "force-dynamic";
 
 import { Suspense } from "react";
-import LoginPage from "@/components/Login";
-import "./style.css"
+import LoginPage from "@/components/auth/Login";
+import "./style.css";
 
 
 

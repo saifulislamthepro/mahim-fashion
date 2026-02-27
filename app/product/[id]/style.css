@@ -33,9 +33,10 @@
 }
 
 .single-product .description {
-    background-color: #fff;
-    color: #333;
+    background-color: #3e302e;
+    color: #ffffff;
     margin-top: 1rem;
+    padding: 1rem;
 }
 
 .single-product .description ul {

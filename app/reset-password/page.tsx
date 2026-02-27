@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 import { Suspense } from "react";
-import ResetPassword from "@/components/ResetPass";
+import ResetPassword from "@/components/auth/ResetPass";
 
 
 export default function () {

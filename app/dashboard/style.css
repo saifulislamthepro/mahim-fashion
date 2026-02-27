@@ -1,3 +1,9 @@
+.page{
+  background-color: #372b30;
+color: #fde6e6;
+}
+
+
 .dashboard h1{
     margin: 1rem 0;
     color: gold;
@@ -5,7 +11,9 @@
 .dashboard {
     padding: 0 1rem;
 }
-
+.no-orders{
+  text-align: center;
+}
 .dashboard>div>section{
     overflow: hidden;
     max-width: 1300px;
@@ -17,7 +25,6 @@
     list-style: none;
 }
 .dashboard .profile{
-    background-color: #fff;
     padding: 1rem;
     height: fit-content;
     grid-column: span 4;
@@ -47,7 +54,6 @@
 }
 
 .order-card {
-  background-color: #fff;
   padding: 1rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   width: 100%;
@@ -97,7 +103,6 @@
 }
 
 .status.pending {
-  background-color: #fff4e5;
   color: #ff9500;
 }
 

@@ -12,6 +12,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   const param = await params;
   const product = await Product.findById(param.id);
   if (!product) return NextResponse.json({ message: "Not found" }, { status: 404 });
+  console.log(product)
   return NextResponse.json(product);
 }
 
@@ -72,7 +73,7 @@ if (finalImages.length > 0) {
       stock,
       images: finalImages,
       thumbnail,
-      featured: Boolean(data.get("featured")),
+      featured: (data.get("featured")),
     },
     { new: true }
   );

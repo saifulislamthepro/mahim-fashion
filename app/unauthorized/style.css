@@ -1,7 +1,6 @@
 /* PAGE WRAPPER */
 .unauth-page {
   min-height: 100vh;
-  background: #f7f7f7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +9,6 @@
 
 /* MAIN CARD */
 .unauth-box {
-  background: white;
   border-radius: 16px;
   padding: 40px 25px;
   max-width: 420px;
@@ -24,7 +22,6 @@
 .unauth-icon {
   width: 90px;
   height: 90px;
-  background: #ffe5dd;
   border-radius: 50%;
   margin: 0 auto 20px auto;
   display: flex;
@@ -35,8 +32,6 @@
 .unauth-icon-inner {
   width: 55px;
   height: 55px;
-  background: #ff7d29;
-  color: white;
   border-radius: 50%;
   font-weight: bold;
   font-size: 32px;
@@ -49,13 +44,11 @@
 .unauth-box h1 {
   font-size: 26px;
   font-weight: 600;
-  color: #333;
   margin-bottom: 12px;
 }
 
 /* DESCRIPTION */
 .unauth-box p {
-  color: #666;
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 28px;

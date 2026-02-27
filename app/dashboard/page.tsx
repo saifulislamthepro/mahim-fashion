@@ -48,6 +48,7 @@ export default async function DashboardPage() {
 
     const orders =JSON.parse(JSON.stringify( await Order.find({userId: session?.user.id}).lean().sort({createdAt: -1})))
 
+    console.log(orders)
   return (
     <div className="page dashboard">
         <div className="page-title flex">            
@@ -87,7 +88,7 @@ export default async function DashboardPage() {
               <div className="orders">{/* Right Column: Orders */}
               <section className="orders-section">
                   {orders.length === 0 ? (
-                    <p>You have no recent orders.</p>
+                    <p className="no-orders">You have no recent orders.</p>
                   ) : (
                     orders.map((o: Order) => (
                       <div className="order-card flex column" key={o._id}>
@@ -97,7 +98,7 @@ export default async function DashboardPage() {
                               <img src={p.image.toString()} alt={p.title} width={200} height={200} />
                               <div className="item-details">
                                 <h3>{p.title}</h3>
-                                <div><strong>Size:</strong> {p.size.map((s, i) => (<p key={i}>{s.name} = {s.stock}</p>))}</div>
+                                <div><strong>Size:</strong> {p.size.toString()}</div>
                                 <p><strong>Qty:</strong> {p.qty}</p>
                                 <p><strong>Price:</strong> {p.price} BDT</p>
                                 <p><strong>Total:</strong> {p.total} BDT</p>

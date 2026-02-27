@@ -1,0 +1,117 @@
+.settings .sub-heading{
+    margin-top: 2rem;
+}
+.settings .category-list{
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+.settings .category-list li{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 0.5rem;
+    background-color: #eee;
+    list-style: none;
+    border: 1px solid gray;
+}
+
+.category-list li div{
+    grid-column: span 4;
+}
+
+.settings .category-list li .cat-name{
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.settings .category-list img{
+    max-width: 100px;
+    width: 100%;
+}
+
+.category-list .btn-container{
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 6px;
+}
+.category-list .btn-container button{
+    width: 100px;
+}
+.settings .category-list li{
+    gap: 10px;
+}
+.settings .category-list li p{
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+.settings p{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.settings form{
+    border: 1px solid gray;
+    padding: 2rem 0.5rem;
+    margin-top: 1rem;
+    background: #eee;
+}
+.settings input{
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+    margin-bottom: 1rem;
+}
+
+.settings .files{
+    width: fit-content;
+}
+
+.settings button{
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    height: 45px;
+}
+
+@media (max-width: 600px) {
+    .settings button{
+        width: 100%;
+    }
+}
+
+
+
+.make-admin .input-container{
+    border: 1px solid gray;
+    padding: 2rem 0.5rem;
+    margin: 1rem 0;
+    background: #eee;
+}
+.make-admin .input-container .undo-admin{
+    justify-content: space-between;
+}
+.make-admin .input-container button{
+    margin-bottom: 1rem;
+}
+@media (prefers-color-scheme: dark){
+    .make-admin .input-container{
+    border: 1px solid gray;
+    padding: 2rem 0.5rem;
+    margin: 1rem 0;
+    background: #1d1d1d;
+}
+
+.settings form{
+    background: #1d1d1d;
+}
+
+.settings .category-list li{
+    background-color: #1d1d1d;
+}
+}

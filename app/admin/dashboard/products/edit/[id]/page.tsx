@@ -1,7 +1,9 @@
 'use client';
-import "./style.css";
+import "../../../create/style.css";
 import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+
+import RichText from "@/components/RichText";
 
 type Size = { name: string; stock: number };
 type Product = {
@@ -27,6 +29,13 @@ export default function EditProductPage() {
   const params = useParams();
   const id = params?.id as string | undefined;
   const router = useRouter();
+
+  
+    
+    const [step, setStep] = useState(1);
+
+    const next = () => setStep((s) => Math.min(s + 1, 5));
+    const prev = () => setStep((s) => Math.max(s - 1, 1));
 
   const [categories, setCategories] = useState<Category[]>([]);
   const [product, setProduct] = useState<Product>({
@@ -66,6 +75,7 @@ export default function EditProductPage() {
       ])
         .then(([_, prod]) => {
           setProduct(prod);
+          setFeatured(prod.featured);
           setSizeAndStock(prod.stock || []);
           setExistingImages(prod.images || []);
           setLoading(false);
@@ -79,16 +89,18 @@ export default function EditProductPage() {
 
   // INPUT HANDLERS ------------------------------------------------------
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-
-    setProduct(prev => ({
-      ...prev,
-      [name]: name === "price" ? parseFloat(value) || 0 : value
-    }));
-  };
+    // input change
+    const handleChange = (
+        e: ChangeEvent<
+            HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+        > | { target: { name: string; value: string } }
+    ) => {
+        const { name, value } = e.target;
+        setProduct((prev) => ({
+            ...prev,
+            [name]: name === "price" ? parseFloat(value) || 0 : value,
+        }));
+    };
 
   // New images
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -161,7 +173,7 @@ export default function EditProductPage() {
     formData.append("category", product.category);
     formData.append("description", product.description);
     formData.append("stock", JSON.stringify(sizeAndStock));
-    formData.append('featured', String( featured))
+    formData.append('featured', String( featured));
 
     imageFiles.forEach(file => formData.append("images", file));
     formData.append("existingImages", JSON.stringify(existingImages));
@@ -172,7 +184,7 @@ export default function EditProductPage() {
     });
 
     if (res.ok) {
-      router.push("/admin/dashboard");
+      router.push("/dashboard/products?menu=products");
     } else {
       alert("❌ Failed to update product");
     }
@@ -184,23 +196,37 @@ export default function EditProductPage() {
 
   console.log(product);
   return (
-    <div className="main-page flex ">
-      <div className="flex">
-        <section className="flex ">
+    <div className="edit-product-page">
+      
+
+            <div className="steps">
+            {["Basic", "Stock", "Description", "Images", "Review"].map((s, i) => (
+                <div key={i} className={step === i + 1 ? "step active" : "step"} onClick={() => setStep(i+1)}> {s}
+                </div>
+            ))}
+            </div>
+  
+      <div className="">
+        <section className="">
           <form onSubmit={handleSubmit}>
+
+            
+      {step === 1 && (
+
+        <>
 
             <div className="input-container flex column">
               <label>Name:</label>
               <input type="text" name="title" value={product.title} onChange={handleChange} />
             </div>
 
-            <div className="input-container flex column">
+            <div className="input-container featured flex">
               <label>Make Featured:</label>
               <input
                 type="checkbox"
                 name="featured"
                 checked={featured}
-                onChange={(e) => setFeatured(e.target.checked)}
+                onChange={() => setFeatured(prev => !prev)}
               />
             </div>
 
@@ -232,7 +258,11 @@ export default function EditProductPage() {
                 ))}
               </select>
             </div>
+          </>
+            )}    
 
+            {step === 2 && (
+              <>
             {/* SIZES ---------------------------------------------------- */}
             <div className="input-container flex column">
               <h3>Edit Sizes & Stock</h3>
@@ -277,7 +307,11 @@ export default function EditProductPage() {
               />
               <button onClick={handleAddNewSize}>Add</button>
             </div>
+              </>
+            )}
             
+
+            {step === 3 && (<>
             <div className="input-container">
                 <div className="description-viewer" dangerouslySetInnerHTML={{ __html: product.description }} />
             </div>
@@ -285,13 +319,21 @@ export default function EditProductPage() {
             {/* Description */}
             <div className="input-container flex column">
               <label>Description:</label>
-              <textarea
-                name="description"
-                rows={8}
-                value={product.description}
-                onChange={handleChange}
-              />
+
+                <RichText
+                  value={product.description}
+                  onChange={(html: string) =>
+                  handleChange({
+                  target: { name: "description", value: html },
+                    })
+                  }
+                />
             </div>
+
+            </>)}
+
+
+            {step === 4 && (<>
 
             {/* IMAGES --------------------------------------------------- */}
             <div className="input-container flex ">
@@ -301,7 +343,10 @@ export default function EditProductPage() {
               {existingImages.map((src, i) => (
                 <div key={i} className="image-container">
                   <img src={src} width={100} />
-                  <i className="fa-solid fa-circle-xmark" onClick={() => handleImageDelete(i, true)}></i>
+                  <p onClick={() => handleImageDelete(i, true)} style={{ color: "red", cursor: "pointer" }}>
+                  <i className="fa-solid fa-circle-xmark" ></i>
+                  Delete img
+                  </p>
                 </div>
               ))}
             </div>
@@ -315,10 +360,73 @@ export default function EditProductPage() {
               </div>
             )}
 
-            <button type="submit" style={{ marginTop: "1rem" }}>
-              Save Changes
-            </button>
+            </>)}
+
+            {step === 5 && (
+            <>
+                <div className="product-preview">
+
+                <h2>Product Preview</h2>
+
+                {/* Basic Info */}
+                <div className="preview-section">
+                    <p><strong>Name:</strong> {product.title}</p>
+                    <p><strong>Price:</strong> ৳{product.price}</p>
+                    <p><strong>Product ID:</strong> {product.productId}</p>
+                    <p><strong>Category:</strong> {product.category}</p>
+                </div>
+
+                {/* Sizes */}
+                <div className="preview-section">
+                    <h3>Sizes & Stock</h3>
+                    {sizeAndStock.length === 0 && <p>No sizes added</p>}
+                    {sizeAndStock.map((s, i) => (
+                    <p key={i}>
+                        Size: <strong>{s.name}</strong> — Stock: <strong>{s.stock}</strong>
+                    </p>
+                    ))}
+                </div>
+
+                {/* Description */}
+                <div className="preview-section">
+                    <h3>Description</h3>
+                    <div
+                    className="description-viewer"
+                    dangerouslySetInnerHTML={{ __html: product.description }}
+                    />
+                </div>
+
+                {/* Images */}
+                <div className="preview-section">
+                    <h3>Images</h3>
+                    <div className="image-preview-container">
+                    {product.images.length === 0 && <p>No images selected</p>}
+                    {product.images.map((src, i) => (
+                        <img
+                        key={i}
+                        src={src}
+                        alt="preview"
+                        width={120}
+                        className="image-preview"
+                        />
+                    ))}
+                    </div>
+                </div>
+
+                {/* Submit */}
+                <button type="submit" className="submit-btn">
+                    Save Changes
+                </button>
+                </div>
+            </>
+            )}
           </form>
+
+            <div className="form-nav">
+            {step > 1 && <button type="button" onClick={prev}>Back</button>}
+            {step < 5 && <button type="button" onClick={next}>Next</button>}
+            </div>
+
         </section>
       </div>
     </div>

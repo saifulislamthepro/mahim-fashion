@@ -55,7 +55,7 @@ return (
                             <i className="fa-solid fa-phone"></i>
                             <div>
                             <h4>Phone</h4>
-                            <p>+880 1700-000000</p>
+                            <p>01687-163735</p>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@ return (
                             <i className="fa-solid fa-envelope"></i>
                             <div>
                             <h4>Email</h4>
-                            <p>support@ravaabd.com</p>
+                            <p>monirqcm@gmail.com</p>
                             </div>
                         </div>
 
@@ -71,15 +71,13 @@ return (
                             <i className="fa-solid fa-location-dot"></i>
                             <div>
                             <h4>Location</h4>
-                            <p>flat: 9A, House: 137/10, SR Plaza, <br />
-                                Mazar Road, Mirpur-01, Dhaka-1216, Bangladesh
-                            </p>
+                            <p>MAHIM FASHION HOUSE, <br />SHOP NO-42 <br /> National Federation Of the Visual Impaired (NFVI), <br /> SAVAR, DHAKA-1340</p>
                             </div>
                         </div>
 
                         <div className="social-links">
-                            <a href="https://www.facebook.com/ravaafashion"><i className="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.youtube.com/ravaafashion"><i className="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/mahimfashionhouse.bd"><i className="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/@"><i className="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
                     </div>

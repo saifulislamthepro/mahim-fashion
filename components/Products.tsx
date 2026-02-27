@@ -1,11 +1,9 @@
 "use client";
-import { addToCart, clearCart } from "./cartHelpers";
+import { addToCart } from "@/components/cartHelpers";
 import { useState, useEffect } from "react";
 import { ProductType } from "@/types/product";
 import Image from "next/image";
 import "./Products.css";
-import { set } from "mongoose";
-import { clear } from "console";
 
 type Props = {
   products: ProductType[];
@@ -92,7 +90,7 @@ useEffect(() => {
           <div className="mobile-product" key={item._id} >
               <a href={`/product/${item._id}`}>
               <div className="img">
-              <Image fill src={item.thumbnail} alt={item.title} loading="lazy" unoptimized/>
+                            <img  src={item.thumbnail} alt={item.title} />
               </div>
               <h3>{item.title}</h3>
               <div className="flex">
@@ -114,7 +112,7 @@ if (products.length <= 4) {
             <div className="web-product" key={item._id} >
               <a href={`/product/${item._id}`}>
                 <div className="img">
-                <Image fill src={item.thumbnail} alt={item.title} loading="lazy" unoptimized/>
+                            <img  src={item.thumbnail} alt={item.title} />
                 </div>
                 <h3>{item.title}</h3>
                 <div className="flex">
@@ -142,7 +140,7 @@ if (products.length <= 4) {
                         <div className="product-card"  key={item._id}>
                           <a href={`/product/${item._id}`}>
                             <div className="img">
-                            <Image fill src={item.thumbnail} alt={item.title} loading="lazy" unoptimized/>
+                            <img  src={item.thumbnail} alt={item.title} />
                             </div>
                             <h3>{item.title}</h3>
                             <div className="flex">

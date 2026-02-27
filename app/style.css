@@ -12,9 +12,6 @@
     color: gold;
 }
 
-.cat-card img{
-    width:100% ;
-}
 
 @media (max-width: 800px) {
     .categories section{
@@ -41,6 +38,10 @@
 .cat-container section .texts{
   grid-column: span 3;
   color: gold;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+     justify-content: flex-end;
 }
 .cat-container section .texts>div{
   padding: 1rem;
@@ -48,10 +49,7 @@
 .cat-container section .texts h3{
  font-size: 24px;
 }
-.cat-container section .texts img{
-  width: 100%;
-  height: auto;
-}
+
 .cat-container section .cat-product{
   grid-column: span 9;
 }
@@ -64,10 +62,6 @@
   padding: 0 1rem;
 }
 
-.cat-container section .texts img{
-  width: 50%;
-  height: auto;
-}
 }
 
 /*-----------*/
@@ -78,4 +72,10 @@
 .search-item:hover {
     background: #f0f0f0;
     cursor: pointer;
+}
+
+
+.cat-group{
+  display: flex;
+  flex-direction: column;
 }

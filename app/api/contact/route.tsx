@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: `"Ravaa Fashion" <${process.env.SMTP_EMAIL}>`,
+      from: `"Mahim Fashion" <${process.env.SMTP_EMAIL}>`,
       to: process.env.RECEIVER_EMAIL, // Admin email
       subject: `New Contact Message: ${subject}`,
       html: `

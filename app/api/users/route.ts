@@ -8,5 +8,6 @@ await connectDB();
 
 const users = await User.find({});
 
+console.log(users);
 return NextResponse.json(users);
 }

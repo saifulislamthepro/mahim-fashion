@@ -76,7 +76,7 @@ export async function GET(req: NextRequest, {params}: { params: Promise<{ email:
   });
 
   await transporter.sendMail({
-    from: `"ravaa" <${process.env.EMAIL_USER}>`,
+    from: `"smart" <${process.env.EMAIL_USER}>`,
     to: param.email,
     subject: "Your Password Reset OTP",
     html: htmlTemplate.replace("{{OTP}}", otp),

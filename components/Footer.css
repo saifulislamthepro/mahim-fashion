@@ -1,5 +1,5 @@
 .footer {
-  background-color: #372b30; /* Black */
+  background-color: #21191c; /* Black */
   color: #fff;
   padding: 60px 20px 20px;
   border-top: 5px solid #ff7a00; /* Orange Accent */
@@ -7,13 +7,14 @@
 }
 
 .footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  max-width: 1300px;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
-
+.footer-section{
+  grid-column: span 3;
+}
 .footer-section h2 {
   font-size: 24px;
   font-weight: 700;
@@ -50,6 +51,15 @@
 
 .footer-section ul li a:hover {
   color: #ff7a00; /* Orange on hover */
+}
+
+
+
+.bottom-container{
+  max-width: 1200px;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
 .social-icons a {
@@ -90,12 +100,44 @@
   font-size: 24px;
   color: orange;
 }
-
-.payment{
-  width: 100%;
+.contact li{
+  line-height: 1.5rem;
+}
+.links, .categories{
+  height: 100%;
+  margin-bottom: 2rem;
+}
+.links a, .categories a{
+  margin-top: 1rem;
 }
 
+.footer-section .cat-card {
+  display: block;
+  margin-top: 10px;
+  font-size: large;
+}
+.footer-section .cat-card:hover {
+  color: yellow;
+}
 .payment img{
+  max-width: 600px;
   width: 100%;
   height: auto;
+  display: inline;
+}
+
+@media (max-width: 800px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-section{
+    grid-column: span 2;
+  }
+}
+.cat-container div{
+  gap: 1rem;
+}
+
+.cat-container div a{
+  font-size: large;
 }

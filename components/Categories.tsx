@@ -35,7 +35,7 @@ export default function Categories () {
           {categories.map((cat, i) => (
           <a href={`category/${cat.slug}`} className="cat-card" key={i}>
             {cat.image && 
-            <img className="img" src={cat.image} alt={cat.name} />}
+            <Image src={cat.image} alt={cat.name} width={150} height={160} loading="lazy" />}
             <h2>{cat.name}</h2>
           </a>
           ))}

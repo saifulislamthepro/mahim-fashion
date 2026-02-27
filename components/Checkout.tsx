@@ -116,14 +116,14 @@ export default function CheckoutCartPage() {
       method: "POST",
       body: JSON.stringify({
         items: cart.map(item => ({
-          productId: item.productId,
-          title: item.title,
-          size: item.size.map(s => s),
-          qty: item.qty,
-          price: item.price,
-          image: item.images[0],
-          total: item.qty * item.price
-        })),
+  productId: item.productId,
+  title: item.title,
+  size: item.size[0]?.name ?? "", // ✅ take first
+  qty: item.qty,
+  price: item.price,
+  image: item.images[0],
+  total: item.qty * item.price
+})),
     subtotal,
     shippingCost,
     total,
@@ -158,7 +158,7 @@ export default function CheckoutCartPage() {
         <h1>Checkout Page</h1>
       </div>
 
-      <div className="flex">
+      <div className="flex form-container">
         <section className="grid">
           {/* BILLING FORM */}
           <form className="grid" onSubmit={handlePlaceOrder}>
